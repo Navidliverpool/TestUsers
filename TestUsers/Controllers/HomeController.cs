@@ -3,8 +3,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using TestUsers.Models;
+using TestUsers.ViewModels;
 
-namespace test.Controllers
+namespace TestUsers.Controllers
 {
     public class HomeController : Controller
     {

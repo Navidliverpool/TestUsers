@@ -197,11 +197,19 @@
     <Compile Include="Models\Brand.cs">
       <DependentUpon>ModelFromNavEcommerceDBfirst.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BrandMetaData.cs" />
+    <Compile Include="Models\BrandVM.cs" />
     <Compile Include="Models\Dealer.cs">
       <DependentUpon>ModelFromNavEcommerceDBfirst.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DealerMetaData.cs" />
+    <Compile Include="Models\DealerVM.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\Model1.designer.cs">
+      <DependentUpon>Model1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ModelFromNavEcommerceDBfirst.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -220,11 +228,14 @@
     <Compile Include="Models\Motorcycle.cs">
       <DependentUpon>ModelFromNavEcommerceDBfirst.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MotorcycleMetaData.cs" />
+    <Compile Include="Models\MotorcycleVM.cs" />
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>ModelFromNavEcommerceDBfirst.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\HomeVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -322,6 +333,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Entities\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
