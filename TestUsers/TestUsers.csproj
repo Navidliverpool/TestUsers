@@ -246,6 +246,8 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap-reboot.rtl.css" />
     <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap-utilities.css" />
     <Content Include="Content\bootstrap-utilities.min.css" />
     <Content Include="Content\bootstrap-utilities.rtl.css" />
@@ -259,6 +261,9 @@
     <Content Include="Content\images\shutterstock_655905334-Cropped.jpg" />
     <Content Include="Content\images\triumph-bobber.jpg" />
     <Content Include="Content\images\unnamed.jpg" />
+    <Content Include="Content\myCss.css" />
+    <Content Include="Content\nivo-slider.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -285,17 +290,44 @@
     <Content Include="Models\ModelFromNavEcommerceDBfirst.edmx.diagram">
       <DependentUpon>ModelFromNavEcommerceDBfirst.edmx</DependentUpon>
     </Content>
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
     <Content Include="Scripts\jquery-3.6.0.slim.js" />
     <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.nivo.slider.js" />
+    <Content Include="Scripts\jquery.nivo.slider.pack.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="themes\bar\arrows.png" />
+    <Content Include="themes\bar\bar.css" />
+    <Content Include="themes\bar\bullets.png" />
+    <Content Include="themes\bar\loading.gif" />
+    <Content Include="themes\dark\arrows.png" />
+    <Content Include="themes\dark\bullets.png" />
+    <Content Include="themes\dark\dark.css" />
+    <Content Include="themes\dark\loading.gif" />
+    <Content Include="themes\default\arrows.png" />
+    <Content Include="themes\default\bullets.png" />
+    <Content Include="themes\default\default.css" />
+    <Content Include="themes\default\loading.gif" />
+    <Content Include="themes\light\arrows.png" />
+    <Content Include="themes\light\bullets.png" />
+    <Content Include="themes\light\light.css" />
+    <Content Include="themes\light\loading.gif" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -330,6 +362,23 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="themes\.DS_Store" />
+    <Content Include="themes\dark\.DS_Store" />
+    <Content Include="Views\Brands\Create.cshtml" />
+    <Content Include="Views\Brands\Delete.cshtml" />
+    <Content Include="Views\Brands\Details.cshtml" />
+    <Content Include="Views\Brands\Edit.cshtml" />
+    <Content Include="Views\Brands\Index.cshtml" />
+    <Content Include="Views\Dealers\Create.cshtml" />
+    <Content Include="Views\Dealers\Delete.cshtml" />
+    <Content Include="Views\Dealers\Details.cshtml" />
+    <Content Include="Views\Dealers\Edit.cshtml" />
+    <Content Include="Views\Dealers\Index.cshtml" />
+    <Content Include="Views\Motorcycles\Create.cshtml" />
+    <Content Include="Views\Motorcycles\Delete.cshtml" />
+    <Content Include="Views\Motorcycles\Details.cshtml" />
+    <Content Include="Views\Motorcycles\Edit.cshtml" />
+    <Content Include="Views\Motorcycles\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
