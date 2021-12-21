@@ -40,6 +40,7 @@ namespace test.Controllers
         }
 
         // GET: Motorcycles/Create
+        [Authorize()]
         public ActionResult Create()
         {
 
@@ -67,13 +68,9 @@ namespace test.Controllers
         }
 
         // GET: Motorcycles/Edit/5
+        [Authorize()]
         public async Task<ActionResult> Edit(int? id)
         {
-
-            //Mapper.CreateMap<Motorcycle, >();
-            //MotorcycleMetaData motorcycleMetaData = Mapper.Map<Motorcycle, MotorcycleMetaData>(motorcycleMeta);
-
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -182,6 +179,7 @@ namespace test.Controllers
 
 
         // GET: Motorcycles/Delete/5
+        [Authorize()]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
