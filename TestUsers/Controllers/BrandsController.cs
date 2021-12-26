@@ -16,6 +16,7 @@ namespace test.Controllers
         private NavEcommerceDBfirst7Entities db = new NavEcommerceDBfirst7Entities();
 
         // GET: Brands
+        [Authorize()]
         public async Task<ActionResult> Index()
         {
             return View(await db.Brands.ToListAsync());
@@ -37,6 +38,7 @@ namespace test.Controllers
         }
 
         // GET: Brands/Create
+        [Authorize()]
         public ActionResult Create()
         {
             return View();
@@ -60,6 +62,7 @@ namespace test.Controllers
         }
 
         // GET: Dealers/Edit/5
+        [Authorize()]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -183,6 +186,7 @@ namespace test.Controllers
         }
 
         // GET: Brands/Delete/5
+        [Authorize()]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)

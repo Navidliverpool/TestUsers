@@ -14,12 +14,14 @@ namespace test.Controllers
         private NavEcommerceDBfirst7Entities db = new NavEcommerceDBfirst7Entities();
 
         // GET: Dealers
+        [Authorize()]
         public async Task<ActionResult> Index()
         {
             return View(await db.Dealers.ToListAsync());
         }
 
         // GET: Dealers/Details/5
+        [Authorize()]
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
@@ -35,6 +37,7 @@ namespace test.Controllers
         }
 
         // GET: Dealers/Create
+        [Authorize()]
         public ActionResult Create()
         {
             return View();
@@ -58,6 +61,7 @@ namespace test.Controllers
         }
 
         // GET: Dealers/Edit/5
+        [Authorize()]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -123,6 +127,7 @@ namespace test.Controllers
         }
 
         // GET: Dealers/Delete/5
+        [Authorize()]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)

@@ -11,7 +11,7 @@ using TestUsers.Models;
 
 namespace test.Controllers
 {
-    public class MotorcyclesController : Controller
+    public class Motorcycles2Controller : Controller
     {
         private NavEcommerceDBfirst7Entities db = new NavEcommerceDBfirst7Entities();
 
