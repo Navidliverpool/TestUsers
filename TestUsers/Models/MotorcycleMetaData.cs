@@ -10,6 +10,7 @@ namespace TestUsers.Entities
         //[Required]
         //[Range(1, 6)]
         public double Price { get; set; }
+
     }
 
     [MetadataType(typeof(MotorcycleMetaData))]

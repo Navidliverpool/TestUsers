@@ -19,11 +19,11 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.Motorcycle.MotorcycleId)
 
-<span>
-    <label>Upload Image</label>
-    <br />
-    <input type="file" name="image" id="image" />
-</span>
+    <span>
+        <label>Upload Image</label>
+        <br />
+        <input type="file" name="image" id="image" />
+    </span>
 
     @if (Model.Motorcycle.Image != null)
     {
@@ -45,6 +45,14 @@
         <div class="col-md-10">
             @Html.EditorFor(model => model.Motorcycle.Price)
             @Html.ValidationMessageFor(model => model.Motorcycle.Price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Motorcycle.Type, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Motorcycle.Type)
+            @Html.ValidationMessageFor(model => model.Motorcycle.Type, "", new { @class = "text-danger" })
         </div>
     </div>
 
