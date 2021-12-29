@@ -53,69 +53,80 @@
 
 <h1 class="SportTitle">Street</h1>
 
-<h1 class="SportTitle">Adventure</h1>
+<div class="col-sm-6">
+    @foreach (var item in Model.TypeHomeVM)
+    {
+        if (item != null)
+        {
+            <img src="data:image;base64,@System.Convert.ToBase64String(item)"/>
+        }
+    }
+</div>
 
-<h1 class="SportTitle">Scooter</h1>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="~/Scripts/jquery.nivo.slider.js"></script>
+    <h1 class="SportTitle">Adventure</h1>
 
-<script type="text/javascript">
-    $(window).load(function () {
-        $('#slider').nivoSlider();
-    });
+    <h1 class="SportTitle">Scooter</h1>
 
-    $(window).load(function () {
-        $('#slider').nivoSlider({
-            effect: 'random',
-            slices: 15,
-            boxCols: 8,
-            boxRows: 4,
-            animSpeed: 500,
-            pauseTime: 3000,
-            startSlide: 0,
-            directionNav: true,
-            controlNav: true,
-            controlNavThumbs: false,
-            pauseOnHover: true,
-            manualAdvance: false,
-            prevText: 'Prev',
-            nextText: 'Next',
-            randomStart: false,
-            beforeChange: function () { },
-            afterChange: function () { },
-            slideshowEnd: function () { },
-            lastSlide: function () { },
-            afterLoad: function () { }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.nivo.slider.js"></script>
+
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#slider').nivoSlider();
         });
-    });
 
-    $(window).load(function () {
-        $('#slider2').nivoSlider();
-    });
-
-    $(window).load(function () {
-        $('#slider2').nivoSlider({
-            effect: 'random',
-            slices: 15,
-            boxCols: 8,
-            boxRows: 4,
-            animSpeed: 500,
-            pauseTime: 3000,
-            startSlide: 0,
-            directionNav: true,
-            controlNav: true,
-            controlNavThumbs: false,
-            pauseOnHover: true,
-            manualAdvance: false,
-            prevText: 'Prev',
-            nextText: 'Next',
-            randomStart: false,
-            beforeChange: function () { },
-            afterChange: function () { },
-            slideshowEnd: function () { },
-            lastSlide: function () { },
-            afterLoad: function () { }
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                effect: 'random',
+                slices: 15,
+                boxCols: 8,
+                boxRows: 4,
+                animSpeed: 500,
+                pauseTime: 3000,
+                startSlide: 0,
+                directionNav: true,
+                controlNav: true,
+                controlNavThumbs: false,
+                pauseOnHover: true,
+                manualAdvance: false,
+                prevText: 'Prev',
+                nextText: 'Next',
+                randomStart: false,
+                beforeChange: function () { },
+                afterChange: function () { },
+                slideshowEnd: function () { },
+                lastSlide: function () { },
+                afterLoad: function () { }
+            });
         });
-    });
-</script>
+
+        $(window).load(function () {
+            $('#slider2').nivoSlider();
+        });
+
+        $(window).load(function () {
+            $('#slider2').nivoSlider({
+                effect: 'random',
+                slices: 15,
+                boxCols: 8,
+                boxRows: 4,
+                animSpeed: 500,
+                pauseTime: 3000,
+                startSlide: 0,
+                directionNav: true,
+                controlNav: true,
+                controlNavThumbs: false,
+                pauseOnHover: true,
+                manualAdvance: false,
+                prevText: 'Prev',
+                nextText: 'Next',
+                randomStart: false,
+                beforeChange: function () { },
+                afterChange: function () { },
+                slideshowEnd: function () { },
+                lastSlide: function () { },
+                afterLoad: function () { }
+            });
+        });
+    </script>
