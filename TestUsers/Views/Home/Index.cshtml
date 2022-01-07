@@ -45,6 +45,9 @@
         font-style: italic;
         text-align: center;
     }
+    div.SmallImgsLocation {
+        margin: 75px 75px 75px 350px;
+    }
 </style>
 
 <h1 class="SportTitle">Sport</h1>
@@ -53,14 +56,18 @@
 
 <h1 class="SportTitle">Street</h1>
 
-<div class="col-sm-6">
-    @foreach (var item in Model.TypeHomeVM)
-    {
-        if (item != null)
+<div class="row">
+        @foreach (var item in Model.TypeHomeVM)
         {
-            <img src="data:image;base64,@System.Convert.ToBase64String(item)"/>
+            if (item != null)
+            {
+                <div class="col-md-3">
+                    <div class="SmallImgsLocation">
+                        <img src="data:image;base64,@System.Convert.ToBase64String(item)" width="250" height="250" />
+                    </div>
+                </div>
+            }
         }
-    }
 </div>
 
 
