@@ -232,6 +232,14 @@
     </Compile>
     <Compile Include="Models\MotorcycleMetaData.cs" />
     <Compile Include="Models\MotorcycleVM.cs" />
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>ModelFromNavEcommerceDBfirst.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderDetail.cs">
+      <DependentUpon>ModelFromNavEcommerceDBfirst.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderDetailMetaData.cs" />
+    <Compile Include="Models\OrderMetaData.cs" />
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>ModelFromNavEcommerceDBfirst.tt</DependentUpon>
     </Compile>

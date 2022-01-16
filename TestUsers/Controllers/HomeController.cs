@@ -16,12 +16,13 @@ namespace TestUsers.Controllers
             var motorcycle = db.Motorcycles;
             var brand = db.Brands;
             var imageDataStreetBikes = db.Motorcycles.Where(m => m.Type == "Street").Select(m => m.Image);
-
+            var imageDataSportBikes = db.Motorcycles.Where(m => m.Type == "Sport").Select(m => m.Image);
             var homeVM = new HomeVM
             {
                 MotorcyclesHomeVM = motorcycle.ToList(),
                 BrandsHomeVM = brand.ToList(),
-                TypeHomeVM = imageDataStreetBikes.ToList()
+                TypeHomeVM1 = imageDataStreetBikes.ToList(),
+                TypeHomeVM2 = imageDataSportBikes.ToList()
             };
 
             return View(homeVM);

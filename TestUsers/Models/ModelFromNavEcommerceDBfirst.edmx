@@ -100,6 +100,27 @@
           <Property Name="Image" Type="varbinary(max)" />
           <Property Name="Type" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="PaymentType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="MotorcycleId" />
+          </Key>
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="Price" Type="float" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="MotorcycleId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -234,6 +255,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_OrderDetail_Motorcycles">
+          <End Role="Motorcycles" Type="Self.Motorcycles" Multiplicity="1" />
+          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Motorcycles">
+              <PropertyRef Name="MotorcycleId" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="MotorcycleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="NavEcommerceDBfirstModelStoreContainer">
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
@@ -245,6 +290,8 @@
           <EntitySet Name="DealerMotorcycle" EntityType="Self.DealerMotorcycle" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dealers" EntityType="Self.Dealers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Motorcycles" EntityType="Self.Motorcycles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_BrandDealer_Brands_BrandsBrandId" Association="Self.FK_BrandDealer_Brands_BrandsBrandId">
             <End Role="Brands" EntitySet="Brands" />
@@ -281,6 +328,14 @@
           <AssociationSet Name="FK_Motorcycles_Brands_BrandId" Association="Self.FK_Motorcycles_Brands_BrandId">
             <End Role="Brands" EntitySet="Brands" />
             <End Role="Motorcycles" EntitySet="Motorcycles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_Motorcycles" Association="Self.FK_OrderDetail_Motorcycles">
+            <End Role="Motorcycles" EntitySet="Motorcycles" />
+            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_Order" Association="Self.FK_OrderDetail_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderDetail" EntitySet="OrderDetail" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -369,6 +424,7 @@
           <NavigationProperty Name="Brand" Relationship="Self.FK_Motorcycles_Brands_BrandId" FromRole="Motorcycles" ToRole="Brands" />
           <NavigationProperty Name="Dealers" Relationship="Self.DealerMotorcycle" FromRole="Motorcycles" ToRole="Dealers" />
           <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="OrderDetails" Relationship="NavEcommerceDBfirstModel.FK_OrderDetail_Motorcycles" FromRole="Motorcycle" ToRole="OrderDetail" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -465,7 +521,65 @@
             <End Role="Dealers" EntitySet="Dealers" />
             <End Role="Motorcycles" EntitySet="Motorcycles" />
           </AssociationSet>
+          <EntitySet Name="Orders" EntityType="NavEcommerceDBfirstModel.Order" />
+          <EntitySet Name="OrderDetails" EntityType="NavEcommerceDBfirstModel.OrderDetail" />
+          <AssociationSet Name="FK_OrderDetail_Motorcycles" Association="NavEcommerceDBfirstModel.FK_OrderDetail_Motorcycles">
+            <End Role="Motorcycle" EntitySet="Motorcycles" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_Order" Association="NavEcommerceDBfirstModel.FK_OrderDetail_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="OrderDetails" Relationship="NavEcommerceDBfirstModel.FK_OrderDetail_Order" FromRole="Order" ToRole="OrderDetail" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="MotorcycleId" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="MotorcycleId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Motorcycle" Relationship="NavEcommerceDBfirstModel.FK_OrderDetail_Motorcycles" FromRole="OrderDetail" ToRole="Motorcycle" />
+          <NavigationProperty Name="Order" Relationship="NavEcommerceDBfirstModel.FK_OrderDetail_Order" FromRole="OrderDetail" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_OrderDetail_Motorcycles">
+          <End Type="NavEcommerceDBfirstModel.Motorcycle" Role="Motorcycle" Multiplicity="1" />
+          <End Type="NavEcommerceDBfirstModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Motorcycle">
+              <PropertyRef Name="MotorcycleId" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="MotorcycleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_Order">
+          <End Type="NavEcommerceDBfirstModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="NavEcommerceDBfirstModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -583,6 +697,28 @@
               <ScalarProperty Name="MotorcycleId" ColumnName="MotorcyclesMotorcycleId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderName" ColumnName="OrderName" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetail">
+                <ScalarProperty Name="MotorcycleId" ColumnName="MotorcycleId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TestUsers.Entities
+namespace TestUsers.Models
 {
     public class BrandMetaData
     {

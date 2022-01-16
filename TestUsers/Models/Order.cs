@@ -12,25 +12,21 @@ namespace TestUsers.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Motorcycle
+    public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Motorcycle()
+        public Order()
         {
-            this.Dealers = new HashSet<Dealer>();
             this.OrderDetails = new HashSet<OrderDetail>();
         }
     
-        public int MotorcycleId { get; set; }
-        public string Model { get; set; }
-        public double Price { get; set; }
-        public Nullable<int> BrandId { get; set; }
-        public byte[] Image { get; set; }
-        public string Type { get; set; }
+        public int OrderID { get; set; }
+        public string OrderName { get; set; }
+        public string OrderDate { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerEmail { get; set; }
+        public string PaymentType { get; set; }
     
-        public virtual Brand Brand { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dealer> Dealers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }

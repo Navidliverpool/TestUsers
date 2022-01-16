@@ -4,136 +4,155 @@
     ViewBag.Title = "2";
 }
 
-<p>
-    <a href="https://localhost:44356/Motorcycles/Index">
-        <img src="~/Content/images/shutterstock_655905334-Cropped.jpg" alt="Motorcycles" />
-    </a>
-
-</p>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-6">
-            <div id="slider" class="nivoSlider">
-                @foreach (var item in Model.MotorcyclesHomeVM)
-                {
-                    if (item.Image != null)
-                    {
-                        <img src="data:image;base64,@System.Convert.ToBase64String(item.Image)" />
-                    }
-                }
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div id="slider2" class="nivoSlider">
-                @foreach (var item in Model.BrandsHomeVM)
-                {
-                    if (item.Image != null)
-                    {
-                        <img src="data:image;base64,@System.Convert.ToBase64String(item.Image)" />
-                    }
-                }
-            </div>
-        </div>
-    </div>
-</div>
-
 <style>
-    h1.SportTitle {
+     h1.SportTitle {
         font-size: 100px;
         background-color: antiquewhite;
         font-style: italic;
         text-align: center;
     }
+
     div.SmallImgsLocation {
-        margin: 75px 75px 75px 350px;
+        margin: 75px 75px 75px 75px;
+    }
+
+    .NavContainer {
+        width: 100%;
+    }
+
+    img {
+        width:100%;
     }
 </style>
-
-<h1 class="SportTitle">Sport</h1>
-
-
-
-<h1 class="SportTitle">Street</h1>
-
-<div class="row">
-        @foreach (var item in Model.TypeHomeVM)
-        {
-            if (item != null)
-            {
-                <div class="col-md-3">
-                    <div class="SmallImgsLocation">
-                        <img src="data:image;base64,@System.Convert.ToBase64String(item)" width="250" height="250" />
-                    </div>
+    <p>
+        <a href="https://localhost:44356/Motorcycles/Index">
+           <img src="~/Content/images/shutterstock_655905334-Cropped.jpg" alt="Motorcycles" />
+        </a>
+    </p>
+        <div class="row">
+            <div class="col-sm-6">
+                <div id="slider" class="nivoSlider">
+                    @foreach (var item in Model.MotorcyclesHomeVM)
+                    {
+                        if (item.Image != null)
+                        {
+                            <img src="data:image;base64,@System.Convert.ToBase64String(item.Image)" />
+                        }
+                    }
                 </div>
-            }
-        }
-</div>
+            </div>
+            <div class="col-sm-6">
+                <div id="slider2" class="nivoSlider">
+                    @foreach (var item in Model.BrandsHomeVM)
+                    {
+                        if (item.Image != null)
+                        {
+                            <img src="data:image;base64,@System.Convert.ToBase64String(item.Image)" />
+                        }
+                    }
+                </div>
+            </div>
+        </div>
 
+        <h1 class="SportTitle">Sport</h1>
+
+        <div class="row">
+            @foreach (var item in Model.TypeHomeVM2)
+            {
+                if (item != null)
+                {
+                    <div class="col-sm-4">
+                        <div class="SmallImgsLocation">
+                            <a href="https://localhost:44356/Motorcycles">
+                                <img src="data:image;base64,@System.Convert.ToBase64String(item)" width="250" height="250" />
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+        <h1 class="SportTitle">Street</h1>
+
+        <div class="row">
+            @foreach (var item in Model.TypeHomeVM1)
+            {
+                if (item != null)
+                {
+                    <div class="col-sm-4">
+                        <div class="SmallImgsLocation">
+                            <a href="https://localhost:44356/Motorcycles">
+                                <img src="data:image;base64,@System.Convert.ToBase64String(item)" width="250" height="250" />
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
 
     <h1 class="SportTitle">Adventure</h1>
 
     <h1 class="SportTitle">Scooter</h1>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/jquery.nivo.slider.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.nivo.slider.js"></script>
 
-    <script type="text/javascript">
-        $(window).load(function () {
-            $('#slider').nivoSlider();
-        });
+<script type="text/javascript">
+    $(window).load(function () {
+        $('#slider').nivoSlider();
+    });
 
-        $(window).load(function () {
-            $('#slider').nivoSlider({
-                effect: 'random',
-                slices: 15,
-                boxCols: 8,
-                boxRows: 4,
-                animSpeed: 500,
-                pauseTime: 3000,
-                startSlide: 0,
-                directionNav: true,
-                controlNav: true,
-                controlNavThumbs: false,
-                pauseOnHover: true,
-                manualAdvance: false,
-                prevText: 'Prev',
-                nextText: 'Next',
-                randomStart: false,
-                beforeChange: function () { },
-                afterChange: function () { },
-                slideshowEnd: function () { },
-                lastSlide: function () { },
-                afterLoad: function () { }
-            });
+    $(window).load(function () {
+        $('#slider').nivoSlider({
+            effect: 'random',
+            slices: 15,
+            boxCols: 8,
+            boxRows: 4,
+            animSpeed: 500,
+            pauseTime: 3000,
+            startSlide: 0,
+            directionNav: true,
+            controlNav: true,
+            controlNavThumbs: false,
+            pauseOnHover: true,
+            manualAdvance: false,
+            prevText: 'Prev',
+            nextText: 'Next',
+            randomStart: false,
+            beforeChange: function () { },
+            afterChange: function () { },
+            slideshowEnd: function () { },
+            lastSlide: function () { },
+            afterLoad: function () { }
         });
+    });
 
-        $(window).load(function () {
-            $('#slider2').nivoSlider();
-        });
+    $(window).load(function () {
+        $('#slider2').nivoSlider();
+    });
 
-        $(window).load(function () {
-            $('#slider2').nivoSlider({
-                effect: 'random',
-                slices: 15,
-                boxCols: 8,
-                boxRows: 4,
-                animSpeed: 500,
-                pauseTime: 3000,
-                startSlide: 0,
-                directionNav: true,
-                controlNav: true,
-                controlNavThumbs: false,
-                pauseOnHover: true,
-                manualAdvance: false,
-                prevText: 'Prev',
-                nextText: 'Next',
-                randomStart: false,
-                beforeChange: function () { },
-                afterChange: function () { },
-                slideshowEnd: function () { },
-                lastSlide: function () { },
-                afterLoad: function () { }
-            });
+    $(window).load(function () {
+        $('#slider2').nivoSlider({
+            effect: 'random',
+            slices: 15,
+            boxCols: 8,
+            boxRows: 4,
+            animSpeed: 500,
+            pauseTime: 3000,
+            startSlide: 0,
+            directionNav: true,
+            controlNav: true,
+            controlNavThumbs: false,
+            pauseOnHover: true,
+            manualAdvance: false,
+            prevText: 'Prev',
+            nextText: 'Next',
+            randomStart: false,
+            beforeChange: function () { },
+            afterChange: function () { },
+            slideshowEnd: function () { },
+            lastSlide: function () { },
+            afterLoad: function () { }
         });
-    </script>
+    });
+</script>

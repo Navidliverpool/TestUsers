@@ -53,7 +53,7 @@ namespace test.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "MotorcycleId,Model,Price,BrandId")] Motorcycle motorcycle)
+        public async Task<ActionResult> Create([Bind(Include = "MotorcycleId,Model,Price,BrandId,Type")] Motorcycle motorcycle)
         {
 
             if (ModelState.IsValid)

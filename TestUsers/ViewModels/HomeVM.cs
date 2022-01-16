@@ -10,7 +10,9 @@ namespace TestUsers.ViewModels
     {
         public IEnumerable<Motorcycle> MotorcyclesHomeVM { get; set; }
         public IEnumerable<Brand> BrandsHomeVM { get; set; }
-        public IEnumerable<byte[]> TypeHomeVM { get; set; }
+        public IEnumerable<byte[]> TypeHomeVM1 { get; set; }
+
+        public IEnumerable<byte[]> TypeHomeVM2 { get; set; }
 
     }
 }

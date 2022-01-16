@@ -33,5 +33,7 @@ namespace TestUsers.Models
         public virtual DbSet<Dealer> Dealers { get; set; }
         public virtual DbSet<Motorcycle> Motorcycles { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
     }
 }

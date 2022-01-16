@@ -36,15 +36,13 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        <link rel="stylesheet" href="~/Content/myCss.css" type="text/css" media="screen" />
+    <div class="container-fluid">
         @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
-    </div>
-
+        </div>
 
     @RenderSection("scripts", required: false)
 </body>
