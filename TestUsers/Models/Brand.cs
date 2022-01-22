@@ -19,6 +19,7 @@ namespace TestUsers.Models
         {
             this.Motorcycles = new HashSet<Motorcycle>();
             this.Dealers = new HashSet<Dealer>();
+            this.Categories = new HashSet<Category>();
         }
     
         public int BrandId { get; set; }
@@ -29,5 +30,7 @@ namespace TestUsers.Models
         public virtual ICollection<Motorcycle> Motorcycles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dealer> Dealers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Category> Categories { get; set; }
     }
 }

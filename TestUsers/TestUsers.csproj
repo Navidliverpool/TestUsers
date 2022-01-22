@@ -199,8 +199,14 @@
     <Compile Include="Models\Brand.cs">
       <DependentUpon>ModelFromNavEcommerceDBfirst.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BrandDealer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\BrandMetaData.cs" />
     <Compile Include="Models\BrandVM.cs" />
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>ModelFromNavEcommerceDBfirst.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Dealer.cs">
       <DependentUpon>ModelFromNavEcommerceDBfirst.tt</DependentUpon>
     </Compile>
@@ -208,9 +214,24 @@
     <Compile Include="Models\DealerVM.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\Model1.designer.cs">
       <DependentUpon>Model1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ModelFromNavEcommerceDBfirst.Context.cs">
       <AutoGen>True</AutoGen>
@@ -278,6 +299,16 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model11.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\ModelFromNavEcommerceDBfirst.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelFromNavEcommerceDBfirst.edmx</DependentUpon>
@@ -306,6 +337,13 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Area\Admin\Views\web.config" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model11.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
