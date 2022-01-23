@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using TestUsers.Models;
 
 namespace TestUsers.ViewModels
@@ -10,9 +11,13 @@ namespace TestUsers.ViewModels
     {
         public IEnumerable<Motorcycle> MotorcyclesHomeVM { get; set; }
         public IEnumerable<Brand> BrandsHomeVM { get; set; }
-        public IEnumerable<byte[]> TypeHomeVM1 { get; set; }
+        //public IEnumerable<byte[]> CategoryStreetHomeVM { get; set; }
+        //public IEnumerable<byte[]> CategorySportHomeVM { get; set; }
+        public IEnumerable<Motorcycle> StreetBikesHomeVM { get; set; }
+        public IEnumerable<Motorcycle> SportBikesHomeVM { get; set; }
+        public IEnumerable<Motorcycle> AdventureBikesHomeVM { get; set; }
 
-        public IEnumerable<byte[]> TypeHomeVM2 { get; set; }
+        public IEnumerable<Motorcycle> ScooterBikesHomeVM { get; set; }
 
     }
 }

@@ -266,6 +266,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\Home2VM.cs" />
     <Compile Include="ViewModels\HomeVM.cs" />
   </ItemGroup>
   <ItemGroup>

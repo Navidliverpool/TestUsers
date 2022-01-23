@@ -15,14 +15,23 @@ namespace TestUsers.Controllers
         {
             var motorcycle = db.Motorcycles;
             var brand = db.Brands;
-            var imageDataStreetBikes = db.Motorcycles.Where(m => m.Type == "Street").Select(m => m.Image);
-            var imageDataSportBikes = db.Motorcycles.Where(m => m.Type == "Sport").Select(m => m.Image);
+            //var imageDataStreetBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Street").Select(m => m.Image);
+            //var imageDataSportBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Sport").Select(m => m.Image);
+            var streetBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Street");
+            var sportBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Sport");
+            var adventureBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Adventure");
+            var scooterBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Scooter");
+
             var homeVM = new HomeVM
             {
                 MotorcyclesHomeVM = motorcycle.ToList(),
                 BrandsHomeVM = brand.ToList(),
-                TypeHomeVM1 = imageDataStreetBikes.ToList(),
-                TypeHomeVM2 = imageDataSportBikes.ToList()
+                //CategoryStreetHomeVM = imageDataStreetBikes.ToList(),
+                //CategorySportHomeVM = imageDataSportBikes.ToList(),
+                StreetBikesHomeVM = streetBikes.ToList(),
+                SportBikesHomeVM = sportBikes.ToList(),
+                AdventureBikesHomeVM = adventureBikes.ToList(),
+                ScooterBikesHomeVM = scooterBikes.ToList()                
             };
 
             return View(homeVM);

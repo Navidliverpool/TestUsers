@@ -103,6 +103,9 @@ namespace test.Controllers
             ViewBag.BrandId =
                     new SelectList(db.Brands, "BrandId", "Name", motorcycleViewModel.Motorcycle.BrandId);
 
+            ViewBag.categoryId =
+                new SelectList(db.Categories, "CategoryId", "MotoCategory", motorcycleViewModel.Motorcycle.CategoryId);
+
             return View(motorcycleViewModel);
         }
 

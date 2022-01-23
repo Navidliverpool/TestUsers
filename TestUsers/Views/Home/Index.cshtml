@@ -50,7 +50,7 @@
     .boxShadow { 
         box-shadow: 1px 1px 20px black;
     }
-  
+
 </style>
 
 <p>
@@ -87,15 +87,26 @@
 <hr>
 
 <div class="row">
-    @foreach (var item in Model.TypeHomeVM2)
+    @foreach (var item in Model.SportBikesHomeVM)
     {
         if (item != null)
         {
-            <div class="col-sm-4">
-                <div class="SmallImgsLocation">
-                    <a href="https://localhost:44356/Motorcycles">
-                        <img src="data:image;base64,@System.Convert.ToBase64String(item)" width="250" height="250" />
-                    </a>
+            <div class="col-sm-3">
+                <div>
+                    <div class="SmallImgsLocation">
+                        <a href="https://localhost:44356/Motorcycles">
+                            <img class="boxShadow" src="data:image;base64,@System.Convert.ToBase64String(item.Image)" width="250" height="250" />
+                        </a>
+
+                    </div>
+                    <div class="ImgContent">
+                        <ul>
+                            <li class="fontWeight">Brand: @item.Brand.Name</li>
+                            <li>Model: @item.Model</li>
+                            <li>Dealers: </li>
+                            <li>Price: <strong>£@item.Price</strong></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         }
@@ -106,7 +117,7 @@
 <hr>
 
 <div class="row">
-    @foreach (var item in Model.TypeHomeVM1)
+    @foreach (var item in Model.StreetBikesHomeVM)
     {
         if (item != null)
         {
@@ -114,16 +125,16 @@
         <div >
             <div class="SmallImgsLocation">
                 <a href="https://localhost:44356/Motorcycles">
-                    <img class="boxShadow" src="data:image;base64,@System.Convert.ToBase64String(item)" width="250" height="250" />
+                    <img class="boxShadow" src="data:image;base64,@System.Convert.ToBase64String(item.Image)" width="250" height="250" />
                 </a>
 
             </div>
                 <div class="ImgContent">
                     <ul>
-                        <li class="fontWeight">Brand: </li>
-                        <li>Model: </li>
+                        <li class="fontWeight">Brand: @item.Brand.Name</li>
+                        <li>Model: @item.Model</li>
                         <li>Dealers: </li>
-                        <li>Price: </li>
+                        <li>Price: <strong>£@item.Price</strong></li>
                     </ul>
                 </div>
         </div>
@@ -136,15 +147,26 @@
 <hr>
 
 <div class="row">
-    @foreach (var item in Model.TypeHomeVM1)
+    @foreach (var item in Model.AdventureBikesHomeVM)
     {
         if (item != null)
         {
-            <div class="col-sm-4">
-                <div class="SmallImgsLocation">
-                    <a href="https://localhost:44356/Motorcycles">
-                        <img src="data:image;base64,@System.Convert.ToBase64String(item)" width="250" height="250" />
-                    </a>
+            <div class="col-sm-3">
+                <div>
+                    <div class="SmallImgsLocation">
+                        <a href="https://localhost:44356/Motorcycles">
+                            <img class="boxShadow" src="data:image;base64,@System.Convert.ToBase64String(item.Image)" width="250" height="250" />
+                        </a>
+
+                    </div>
+                    <div class="ImgContent">
+                        <ul>
+                            <li class="fontWeight">Brand: @item.Brand.Name</li>
+                            <li>Model: @item.Model</li>
+                            <li>Dealers: </li>
+                            <li>Price: <strong>£@item.Price</strong></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         }
@@ -155,15 +177,26 @@
 <hr>
 
 <div class="row">
-    @foreach (var item in Model.TypeHomeVM1)
+    @foreach (var item in Model.ScooterBikesHomeVM)
     {
         if (item != null)
         {
-            <div class="col-sm-4">
-                <div class="SmallImgsLocation">
-                    <a href="https://localhost:44356/Motorcycles">
-                        <img src="data:image;base64,@System.Convert.ToBase64String(item)" width="250" height="250" />
-                    </a>
+            <div class="col-sm-3">
+                <div>
+                    <div class="SmallImgsLocation">
+                        <a href="https://localhost:44356/Motorcycles">
+                            <img class="boxShadow" src="data:image;base64,@System.Convert.ToBase64String(item.Image)" width="250" height="250" />
+                        </a>
+
+                    </div>
+                    <div class="ImgContent">
+                        <ul>
+                            <li class="fontWeight">Brand: @item.Brand.Name</li>
+                            <li>Model: @item.Model</li>
+                            <li>Dealers: </li>
+                            <li>Price: <strong>£@item.Price</strong></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         }
