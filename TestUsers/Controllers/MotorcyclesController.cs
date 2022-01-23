@@ -122,7 +122,7 @@ namespace test.Controllers
                 var motorcycleToUpdate = db.Motorcycles
                     .Include(m => m.Dealers).First(m => m.MotorcycleId == motorcycleViewModel.Motorcycle.MotorcycleId);
 
-                if (TryUpdateModel(motorcycleToUpdate, "Motorcycle", new string[] { "Model", "Price", "Image", "BrandId", "Type", "Dealers", "MotorcycleId" }))
+                if (TryUpdateModel(motorcycleToUpdate, "Motorcycle", new string[] { "Model", "Price", "Image", "BrandId", "Type", "Dealers", "CategoryId", "MotorcycleId" }))
                 {
                     var newDealers = db.Dealers.Where(
                        m => motorcycleViewModel.SelectedDealers.Contains(m.DealerId)).ToList();
@@ -169,6 +169,10 @@ namespace test.Controllers
 
             motorcycleViewModel.Motorcycle.Brand = brand;
 
+            var category = db.Categories.FirstOrDefault(c => c.CategoryId == motorcycleViewModel.Motorcycle.CategoryId);
+
+            motorcycleViewModel.Motorcycle.Category = category;
+
             motorcycleViewModel.AllDealers = allDealersList.Select(d => new SelectListItem
             {
                 Text = d.Name,
@@ -177,6 +181,9 @@ namespace test.Controllers
 
             ViewBag.BrandId =
                     new SelectList(db.Brands, "BrandId", "Name", motorcycleViewModel.Motorcycle.BrandId);
+
+            ViewBag.CategoryId =
+                    new SelectList(db.Categories, "CategoryId", "MotoCategory", motorcycleViewModel.Motorcycle.CategoryId);
             return View(motorcycleViewModel);
         }
 

@@ -15,8 +15,6 @@ namespace TestUsers.Controllers
         {
             var motorcycle = db.Motorcycles;
             var brand = db.Brands;
-            //var imageDataStreetBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Street").Select(m => m.Image);
-            //var imageDataSportBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Sport").Select(m => m.Image);
             var streetBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Street");
             var sportBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Sport");
             var adventureBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Adventure");
@@ -26,8 +24,6 @@ namespace TestUsers.Controllers
             {
                 MotorcyclesHomeVM = motorcycle.ToList(),
                 BrandsHomeVM = brand.ToList(),
-                //CategoryStreetHomeVM = imageDataStreetBikes.ToList(),
-                //CategorySportHomeVM = imageDataSportBikes.ToList(),
                 StreetBikesHomeVM = streetBikes.ToList(),
                 SportBikesHomeVM = sportBikes.ToList(),
                 AdventureBikesHomeVM = adventureBikes.ToList(),

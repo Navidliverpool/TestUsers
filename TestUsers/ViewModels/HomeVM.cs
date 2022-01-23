@@ -11,8 +11,6 @@ namespace TestUsers.ViewModels
     {
         public IEnumerable<Motorcycle> MotorcyclesHomeVM { get; set; }
         public IEnumerable<Brand> BrandsHomeVM { get; set; }
-        //public IEnumerable<byte[]> CategoryStreetHomeVM { get; set; }
-        //public IEnumerable<byte[]> CategorySportHomeVM { get; set; }
         public IEnumerable<Motorcycle> StreetBikesHomeVM { get; set; }
         public IEnumerable<Motorcycle> SportBikesHomeVM { get; set; }
         public IEnumerable<Motorcycle> AdventureBikesHomeVM { get; set; }
