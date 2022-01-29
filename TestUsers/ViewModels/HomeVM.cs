@@ -17,5 +17,8 @@ namespace TestUsers.ViewModels
 
         public IEnumerable<Motorcycle> ScooterBikesHomeVM { get; set; }
 
+        //public IEnumerable<Motorcycle> CategoriesHomeVM { get; set; }
+
+
     }
 }

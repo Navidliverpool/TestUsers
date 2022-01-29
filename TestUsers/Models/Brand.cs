@@ -17,9 +17,9 @@ namespace TestUsers.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Brand()
         {
-            this.Motorcycles = new HashSet<Motorcycle>();
             this.Dealers = new HashSet<Dealer>();
             this.Categories = new HashSet<Category>();
+            this.Motorcycles = new HashSet<Motorcycle>();
         }
     
         public int BrandId { get; set; }
@@ -27,10 +27,10 @@ namespace TestUsers.Models
         public byte[] Image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Motorcycle> Motorcycles { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dealer> Dealers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Category> Categories { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Motorcycle> Motorcycles { get; set; }
     }
 }

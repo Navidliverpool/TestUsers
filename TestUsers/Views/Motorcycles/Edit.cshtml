@@ -47,14 +47,6 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Motorcycle.Type, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Motorcycle.Type)
-            @Html.ValidationMessageFor(model => model.Motorcycle.Type, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
         @Html.LabelFor(model => model.Motorcycle.BrandId, "Brand", new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(m => m.Motorcycle.BrandId,
@@ -70,7 +62,7 @@
             @Html.DropDownListFor(m => m.Motorcycle.CategoryId,
              (SelectList)ViewBag.CategoryId,
              Model.Motorcycle.Category.CategoryId)
-            @Html.ValidationMessageFor(model => model.Motorcycle.Category)
+            @Html.ValidationMessageFor(model => model.Motorcycle.CategoryId)
         </div>
     </div>
 

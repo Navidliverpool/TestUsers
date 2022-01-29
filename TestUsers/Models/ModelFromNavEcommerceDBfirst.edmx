@@ -113,7 +113,6 @@
           <Property Name="Price" Type="float" Nullable="false" />
           <Property Name="BrandId" Type="int" />
           <Property Name="Image" Type="varbinary(max)" />
-          <Property Name="Type" Type="nvarchar(max)" />
           <Property Name="CategoryId" Type="int" />
         </EntityType>
         <EntityType Name="Order">
@@ -446,9 +445,9 @@
           <Property Name="BrandId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="Motorcycles" Relationship="Self.FK_Motorcycles_Brands_BrandId" FromRole="Brands" ToRole="Motorcycles" />
           <NavigationProperty Name="Dealers" Relationship="Self.BrandDealer" FromRole="Brands" ToRole="Dealers" />
           <NavigationProperty Name="Categories" Relationship="NavEcommerceDBfirstModel.BrandCategory" FromRole="Brand" ToRole="Category" />
+          <NavigationProperty Name="Motorcycles" Relationship="NavEcommerceDBfirstModel.FK_Motorcycles_Brands_BrandId" FromRole="Brand" ToRole="Motorcycle" />
         </EntityType>
         <EntityType Name="Dealer">
           <Key>
@@ -459,23 +458,7 @@
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PhoneNumber" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Brands" Relationship="Self.BrandDealer" FromRole="Dealers" ToRole="Brands" />
-          <NavigationProperty Name="Motorcycles" Relationship="Self.DealerMotorcycle" FromRole="Dealers" ToRole="Motorcycles" />
-        </EntityType>
-        <EntityType Name="Motorcycle">
-          <Key>
-            <PropertyRef Name="MotorcycleId" />
-          </Key>
-          <Property Name="MotorcycleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Model" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Double" Nullable="false" />
-          <Property Name="BrandId" Type="Int32" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="Brand" Relationship="Self.FK_Motorcycles_Brands_BrandId" FromRole="Motorcycles" ToRole="Brands" />
-          <NavigationProperty Name="Dealers" Relationship="Self.DealerMotorcycle" FromRole="Motorcycles" ToRole="Dealers" />
-          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="OrderDetails" Relationship="NavEcommerceDBfirstModel.FK_OrderDetail_Motorcycles" FromRole="Motorcycle" ToRole="OrderDetail" />
-          <Property Name="CategoryId" Type="Int32" />
-          <NavigationProperty Name="Category" Relationship="NavEcommerceDBfirstModel.FK_Motorcycles_Category" FromRole="Motorcycle" ToRole="Category" />
+          <NavigationProperty Name="Motorcycles" Relationship="NavEcommerceDBfirstModel.DealerMotorcycle" FromRole="Dealer" ToRole="Motorcycle" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -515,18 +498,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Motorcycles_Brands_BrandId">
-          <End Role="Brands" Type="Self.Brand" Multiplicity="0..1" />
-          <End Role="Motorcycles" Type="Self.Motorcycle" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Brands">
-              <PropertyRef Name="BrandId" />
-            </Principal>
-            <Dependent Role="Motorcycles">
-              <PropertyRef Name="BrandId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="AspNetUserRoles">
           <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
@@ -535,10 +506,6 @@
           <End Role="Brands" Type="Self.Brand" Multiplicity="*" />
           <End Role="Dealers" Type="Self.Dealer" Multiplicity="*" />
         </Association>
-        <Association Name="DealerMotorcycle">
-          <End Role="Dealers" Type="Self.Dealer" Multiplicity="*" />
-          <End Role="Motorcycles" Type="Self.Motorcycle" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="NavEcommerceDBfirst7Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
@@ -546,7 +513,6 @@
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
           <EntitySet Name="Brands" EntityType="Self.Brand" />
           <EntitySet Name="Dealers" EntityType="Self.Dealer" />
-          <EntitySet Name="Motorcycles" EntityType="Self.Motorcycle" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -556,10 +522,6 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
           </AssociationSet>
-          <AssociationSet Name="FK_Motorcycles_Brands_BrandId" Association="Self.FK_Motorcycles_Brands_BrandId">
-            <End Role="Brands" EntitySet="Brands" />
-            <End Role="Motorcycles" EntitySet="Motorcycles" />
-          </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -568,28 +530,33 @@
             <End Role="Brands" EntitySet="Brands" />
             <End Role="Dealers" EntitySet="Dealers" />
           </AssociationSet>
-          <AssociationSet Name="DealerMotorcycle" Association="Self.DealerMotorcycle">
-            <End Role="Dealers" EntitySet="Dealers" />
-            <End Role="Motorcycles" EntitySet="Motorcycles" />
-          </AssociationSet>
           <EntitySet Name="Orders" EntityType="NavEcommerceDBfirstModel.Order" />
           <EntitySet Name="OrderDetails" EntityType="NavEcommerceDBfirstModel.OrderDetail" />
-          <AssociationSet Name="FK_OrderDetail_Motorcycles" Association="NavEcommerceDBfirstModel.FK_OrderDetail_Motorcycles">
-            <End Role="Motorcycle" EntitySet="Motorcycles" />
-            <End Role="OrderDetail" EntitySet="OrderDetails" />
-          </AssociationSet>
           <AssociationSet Name="FK_OrderDetail_Order" Association="NavEcommerceDBfirstModel.FK_OrderDetail_Order">
             <End Role="Order" EntitySet="Orders" />
             <End Role="OrderDetail" EntitySet="OrderDetails" />
           </AssociationSet>
           <EntitySet Name="Categories" EntityType="NavEcommerceDBfirstModel.Category" />
+          <AssociationSet Name="BrandCategory" Association="NavEcommerceDBfirstModel.BrandCategory">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Category" EntitySet="Categories" />
+          </AssociationSet>
+          <EntitySet Name="Motorcycles" EntityType="NavEcommerceDBfirstModel.Motorcycle" />
+          <AssociationSet Name="FK_Motorcycles_Brands_BrandId" Association="NavEcommerceDBfirstModel.FK_Motorcycles_Brands_BrandId">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Motorcycle" EntitySet="Motorcycles" />
+          </AssociationSet>
           <AssociationSet Name="FK_Motorcycles_Category" Association="NavEcommerceDBfirstModel.FK_Motorcycles_Category">
             <End Role="Category" EntitySet="Categories" />
             <End Role="Motorcycle" EntitySet="Motorcycles" />
           </AssociationSet>
-          <AssociationSet Name="BrandCategory" Association="NavEcommerceDBfirstModel.BrandCategory">
-            <End Role="Brand" EntitySet="Brands" />
-            <End Role="Category" EntitySet="Categories" />
+          <AssociationSet Name="FK_OrderDetail_Motorcycles" Association="NavEcommerceDBfirstModel.FK_OrderDetail_Motorcycles">
+            <End Role="Motorcycle" EntitySet="Motorcycles" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="DealerMotorcycle" Association="NavEcommerceDBfirstModel.DealerMotorcycle">
+            <End Role="Dealer" EntitySet="Dealers" />
+            <End Role="Motorcycle" EntitySet="Motorcycles" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Order">
@@ -613,21 +580,9 @@
           <Property Name="Price" Type="Double" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="MotorcycleId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Motorcycle" Relationship="NavEcommerceDBfirstModel.FK_OrderDetail_Motorcycles" FromRole="OrderDetail" ToRole="Motorcycle" />
           <NavigationProperty Name="Order" Relationship="NavEcommerceDBfirstModel.FK_OrderDetail_Order" FromRole="OrderDetail" ToRole="Order" />
+          <NavigationProperty Name="Motorcycle" Relationship="NavEcommerceDBfirstModel.FK_OrderDetail_Motorcycles" FromRole="OrderDetail" ToRole="Motorcycle" />
         </EntityType>
-        <Association Name="FK_OrderDetail_Motorcycles">
-          <End Type="NavEcommerceDBfirstModel.Motorcycle" Role="Motorcycle" Multiplicity="1" />
-          <End Type="NavEcommerceDBfirstModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Motorcycle">
-              <PropertyRef Name="MotorcycleId" />
-            </Principal>
-            <Dependent Role="OrderDetail">
-              <PropertyRef Name="MotorcycleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OrderDetail_Order">
           <End Type="NavEcommerceDBfirstModel.Order" Role="Order" Multiplicity="1" />
           <End Type="NavEcommerceDBfirstModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
@@ -646,9 +601,40 @@
           </Key>
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
           <Property Name="MotoCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Motorcycles" Relationship="NavEcommerceDBfirstModel.FK_Motorcycles_Category" FromRole="Category" ToRole="Motorcycle" />
           <NavigationProperty Name="Brands" Relationship="NavEcommerceDBfirstModel.BrandCategory" FromRole="Category" ToRole="Brand" />
+          <NavigationProperty Name="Motorcycles" Relationship="NavEcommerceDBfirstModel.FK_Motorcycles_Category" FromRole="Category" ToRole="Motorcycle" />
         </EntityType>
+        <Association Name="BrandCategory">
+          <End Type="NavEcommerceDBfirstModel.Brand" Role="Brand" Multiplicity="*" />
+          <End Type="NavEcommerceDBfirstModel.Category" Role="Category" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Motorcycle">
+          <Key>
+            <PropertyRef Name="MotorcycleId" />
+          </Key>
+          <Property Name="MotorcycleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="BrandId" Type="Int32" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CategoryId" Type="Int32" />
+          <NavigationProperty Name="Brand" Relationship="NavEcommerceDBfirstModel.FK_Motorcycles_Brands_BrandId" FromRole="Motorcycle" ToRole="Brand" />
+          <NavigationProperty Name="Category" Relationship="NavEcommerceDBfirstModel.FK_Motorcycles_Category" FromRole="Motorcycle" ToRole="Category" />
+          <NavigationProperty Name="OrderDetails" Relationship="NavEcommerceDBfirstModel.FK_OrderDetail_Motorcycles" FromRole="Motorcycle" ToRole="OrderDetail" />
+          <NavigationProperty Name="Dealers" Relationship="NavEcommerceDBfirstModel.DealerMotorcycle" FromRole="Motorcycle" ToRole="Dealer" />
+        </EntityType>
+        <Association Name="FK_Motorcycles_Brands_BrandId">
+          <End Type="NavEcommerceDBfirstModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="NavEcommerceDBfirstModel.Motorcycle" Role="Motorcycle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandId" />
+            </Principal>
+            <Dependent Role="Motorcycle">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Motorcycles_Category">
           <End Type="NavEcommerceDBfirstModel.Category" Role="Category" Multiplicity="0..1" />
           <End Type="NavEcommerceDBfirstModel.Motorcycle" Role="Motorcycle" Multiplicity="*" />
@@ -661,9 +647,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="BrandCategory">
-          <End Type="NavEcommerceDBfirstModel.Brand" Role="Brand" Multiplicity="*" />
-          <End Type="NavEcommerceDBfirstModel.Category" Role="Category" Multiplicity="*" />
+        <Association Name="FK_OrderDetail_Motorcycles">
+          <End Type="NavEcommerceDBfirstModel.Motorcycle" Role="Motorcycle" Multiplicity="1" />
+          <End Type="NavEcommerceDBfirstModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Motorcycle">
+              <PropertyRef Name="MotorcycleId" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="MotorcycleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DealerMotorcycle">
+          <End Type="NavEcommerceDBfirstModel.Dealer" Role="Dealer" Multiplicity="*" />
+          <End Type="NavEcommerceDBfirstModel.Motorcycle" Role="Motorcycle" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -735,19 +733,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Motorcycles">
-            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel.Motorcycle">
-              <MappingFragment StoreEntitySet="Motorcycles">
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="MotorcycleId" ColumnName="MotorcycleId" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="NavEcommerceDBfirstModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -773,14 +758,6 @@
             </EndProperty>
             <EndProperty Name="Dealers">
               <ScalarProperty Name="DealerId" ColumnName="DealersDealerId" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="DealerMotorcycle" TypeName="NavEcommerceDBfirstModel.DealerMotorcycle" StoreEntitySet="DealerMotorcycle">
-            <EndProperty Name="Dealers">
-              <ScalarProperty Name="DealerId" ColumnName="DealersDealerId" />
-            </EndProperty>
-            <EndProperty Name="Motorcycles">
-              <ScalarProperty Name="MotorcycleId" ColumnName="MotorcyclesMotorcycleId" />
             </EndProperty>
           </AssociationSetMapping>
           <EntitySetMapping Name="Orders">
@@ -819,6 +796,26 @@
             </EndProperty>
             <EndProperty Name="Brand">
               <ScalarProperty Name="BrandId" ColumnName="BrandsBrandId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Motorcycles">
+            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel.Motorcycle">
+              <MappingFragment StoreEntitySet="Motorcycles">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="MotorcycleId" ColumnName="MotorcycleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="DealerMotorcycle" TypeName="NavEcommerceDBfirstModel.DealerMotorcycle" StoreEntitySet="DealerMotorcycle">
+            <EndProperty Name="Motorcycle">
+              <ScalarProperty Name="MotorcycleId" ColumnName="MotorcyclesMotorcycleId" />
+            </EndProperty>
+            <EndProperty Name="Dealer">
+              <ScalarProperty Name="DealerId" ColumnName="DealersDealerId" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

@@ -13,21 +13,26 @@ namespace TestUsers.Controllers
 
         public async Task<ActionResult> Index()
         {
-            var motorcycle = db.Motorcycles;
-            var brand = db.Brands;
-            var streetBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Street");
-            var sportBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Sport");
-            var adventureBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Adventure");
-            var scooterBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Scooter");
+            var motorcycle = db.Motorcycles.ToList();
+            var brand = db.Brands.ToList();
+            var streetBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Street").ToList();
+            var sportBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Sport").ToList();
+            var adventureBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Adventure").ToList();
+            var scooterBikes = db.Motorcycles.Where(m => m.Category.MotoCategory == "Scooter").ToList();
+            //var categories = db.Motorcycles.Where(m => m.Category.MotoCategory == "Street" 
+            //                                       || m.Category.MotoCategory == "Sport"
+            //                                       || m.Category.MotoCategory == "Adventure"
+            //                                       || m.Category.MotoCategory == "Scooter").ToList();
 
             var homeVM = new HomeVM
             {
-                MotorcyclesHomeVM = motorcycle.ToList(),
-                BrandsHomeVM = brand.ToList(),
-                StreetBikesHomeVM = streetBikes.ToList(),
-                SportBikesHomeVM = sportBikes.ToList(),
-                AdventureBikesHomeVM = adventureBikes.ToList(),
-                ScooterBikesHomeVM = scooterBikes.ToList()                
+                MotorcyclesHomeVM = motorcycle,
+                BrandsHomeVM = brand,
+                StreetBikesHomeVM = streetBikes,
+                SportBikesHomeVM = sportBikes,
+                AdventureBikesHomeVM = adventureBikes,
+                ScooterBikesHomeVM = scooterBikes
+                //CategoriesHomeVM = categories
             };
 
             return View(homeVM);

@@ -53,7 +53,7 @@ namespace test.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "MotorcycleId,Model,Price,BrandId,Type")] Motorcycle motorcycle)
+        public async Task<ActionResult> Create([Bind(Include = "MotorcycleId,Model,Price,BrandId")] Motorcycle motorcycle)
         {
 
             if (ModelState.IsValid)
@@ -122,7 +122,7 @@ namespace test.Controllers
                 var motorcycleToUpdate = db.Motorcycles
                     .Include(m => m.Dealers).First(m => m.MotorcycleId == motorcycleViewModel.Motorcycle.MotorcycleId);
 
-                if (TryUpdateModel(motorcycleToUpdate, "Motorcycle", new string[] { "Model", "Price", "Image", "BrandId", "Type", "Dealers", "CategoryId", "MotorcycleId" }))
+                if (TryUpdateModel(motorcycleToUpdate, "Motorcycle", new string[] { "Model", "Price", "Image", "BrandId", "Dealers", "CategoryId", "MotorcycleId" }))
                 {
                     var newDealers = db.Dealers.Where(
                        m => motorcycleViewModel.SelectedDealers.Contains(m.DealerId)).ToList();

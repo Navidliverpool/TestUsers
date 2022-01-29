@@ -31,10 +31,10 @@ namespace TestUsers.Models
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Dealer> Dealers { get; set; }
-        public virtual DbSet<Motorcycle> Motorcycles { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Motorcycle> Motorcycles { get; set; }
     }
 }

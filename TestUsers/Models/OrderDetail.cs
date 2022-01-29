@@ -19,7 +19,7 @@ namespace TestUsers.Models
         public Nullable<int> Quantity { get; set; }
         public int MotorcycleId { get; set; }
     
-        public virtual Motorcycle Motorcycle { get; set; }
         public virtual Order Order { get; set; }
+        public virtual Motorcycle Motorcycle { get; set; }
     }
 }

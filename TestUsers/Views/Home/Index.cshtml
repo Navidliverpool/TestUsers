@@ -103,9 +103,15 @@
                         <ul>
                             <li class="fontWeight">Brand: @item.Brand.Name</li>
                             <li>Model: @item.Model</li>
-                            <li>Dealers: </li>
-                            <li>Price: <strong>£@item.Price</strong></li>
-                        </ul>
+                            <li>
+                                Dealers:
+                                @foreach (var dealer in item.Dealers)
+                                 {
+                                    @dealer.Name
+                                 }
+                                </li>
+                                <li>Price: <strong>£@item.Price</strong></li>
+                            </ul>
                     </div>
                 </div>
             </div>
@@ -133,7 +139,13 @@
                     <ul>
                         <li class="fontWeight">Brand: @item.Brand.Name</li>
                         <li>Model: @item.Model</li>
-                        <li>Dealers: </li>
+                        <li>
+                            Dealers:
+                            @foreach (var dealer in item.Dealers)
+                            {
+                                @dealer.Name
+                            }
+                        </li>
                         <li>Price: <strong>£@item.Price</strong></li>
                     </ul>
                 </div>
@@ -163,7 +175,13 @@
                         <ul>
                             <li class="fontWeight">Brand: @item.Brand.Name</li>
                             <li>Model: @item.Model</li>
-                            <li>Dealers: </li>
+                            <li>
+                                Dealers:
+                                @foreach (var dealer in item.Dealers)
+                                {
+                                    @dealer.Name
+                                }
+                            </li>
                             <li>Price: <strong>£@item.Price</strong></li>
                         </ul>
                     </div>
@@ -193,7 +211,13 @@
                         <ul>
                             <li class="fontWeight">Brand: @item.Brand.Name</li>
                             <li>Model: @item.Model</li>
-                            <li>Dealers: </li>
+                            <li>
+                                Dealers:
+                                @foreach (var dealer in item.Dealers)
+                                {
+                                    @dealer.Name
+                                }
+                            </li>
                             <li>Price: <strong>£@item.Price</strong></li>
                         </ul>
                     </div>
@@ -265,3 +289,4 @@
         });
     });
 </script>
+
