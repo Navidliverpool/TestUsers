@@ -14,6 +14,7 @@
         <th>Brand Name</th>
         <th>Category</th>
         <th>Quantity</th>
+        <th>Sub Total</th>
     </tr>
 
     @foreach (var item in (List<Item>)Session["cart"])
@@ -37,9 +38,9 @@
     <td>
         @item.Quantity
     </td>
-    @*<td>
+    <td>
         @(item.Product.Price * item.Quantity)
-    </td>*@
+    </td>
 </tr>
     }
 
