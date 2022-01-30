@@ -178,8 +178,11 @@
     <Compile Include="Controllers\BrandsController.cs" />
     <Compile Include="Controllers\DealersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Item.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MotorcyclesController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -429,12 +432,14 @@
     <Content Include="Views\Motorcycles\Details.cshtml" />
     <Content Include="Views\Motorcycles\Edit.cshtml" />
     <Content Include="Views\Motorcycles\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Area\Admin\Data\" />
     <Folder Include="Area\Admin\Views\Shared\" />
     <Folder Include="Entities\" />
+    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

@@ -35,6 +35,7 @@ namespace TestUsers.Controllers
                 //CategoriesHomeVM = categories
             };
 
+            //ViewBag.listProducts = db.Motorcycles.ToList();
             return View(homeVM);
         }
 

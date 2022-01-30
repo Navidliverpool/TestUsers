@@ -1,0 +1,46 @@
+﻿@using  TestUsers.Controllers
+@{
+    ViewBag.Title = "Cart";
+}
+
+
+<h2>Cart</h2>
+
+<table class="table">
+    <tr>
+        <th>MotorcycleId</th>
+        <th>Model</th>
+        <th>Price</th>
+        <th>Brand Name</th>
+        <th>Category</th>
+        <th>Quantity</th>
+    </tr>
+
+    @foreach (var item in (List<Item>)Session["cart"])
+    {
+<tr>
+    <td>
+        @item.Product.MotorcycleId
+    </td>
+    <td>
+        @item.Product.Model
+    </td>
+    <td>
+        @item.Product.Price
+    </td>
+    <td>
+        @item.Product.Brand.Name
+    </td>
+    <td>
+        @item.Product.Category.MotoCategory
+    </td>
+    <td>
+        @item.Quantity
+    </td>
+    @*<td>
+        @(item.Product.Price * item.Quantity)
+    </td>*@
+</tr>
+    }
+
+</table>

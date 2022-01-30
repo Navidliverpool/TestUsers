@@ -147,6 +147,7 @@
                             }
                         </li>
                         <li>Price: <strong>£@item.Price</strong></li>
+                        <li>@Html.ActionLink("Order Now", "OrderNow", "ShoppingCart", null, new { id = @item.MotorcycleId })</li>
                     </ul>
                 </div>
         </div>
