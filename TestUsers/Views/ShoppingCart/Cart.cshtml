@@ -1,8 +1,14 @@
-﻿@using  TestUsers.Controllers
+﻿@using TestUsers.Controllers
 @{
     ViewBag.Title = "Cart";
 }
 
+
+<style>
+    .addtocart {
+        color: red;
+    }
+</style>
 
 <h2>Cart</h2>
 
@@ -19,29 +25,30 @@
 
     @foreach (var item in (List<Item>)Session["cart"])
     {
-<tr>
-    <td>
-        @item.Product.MotorcycleId
-    </td>
-    <td>
-        @item.Product.Model
-    </td>
-    <td>
-        @item.Product.Price
-    </td>
-    <td>
-        @item.Product.Brand.Name
-    </td>
-    <td>
-        @item.Product.Category.MotoCategory
-    </td>
-    <td>
-        @item.Quantity
-    </td>
-    <td>
-        @(item.Product.Price * item.Quantity)
-    </td>
-</tr>
+        <tr>
+            <td>
+                @item.Product.MotorcycleId
+            </td>
+            <td>
+                @item.Product.Model
+            </td>
+            <td>
+                @item.Product.Price
+            </td>
+            <td>
+                @item.Product.Brand.Name
+            </td>
+            <td>
+                @item.Product.Category.MotoCategory
+            </td>
+            <td>
+                @item.Quantity
+            </td>
+            <td>
+                @(item.Product.Price * item.Quantity)
+            </td>
+        </tr>
     }
-
 </table>
+
+    @Html.ActionLink("continue Shopping", "Index", "Home", null, new { @class = "addtocart" })
