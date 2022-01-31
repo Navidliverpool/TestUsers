@@ -17,15 +17,15 @@
         <AssociationConnector Association="NavEcommerceDBfirstModel.AspNetUserRoles" ManuallyRouted="false" />
         <AssociationConnector Association="NavEcommerceDBfirstModel.BrandDealer" ManuallyRouted="false" />
         <EntityTypeShape EntityType="NavEcommerceDBfirstModel.Order" Width="1.5" PointX="7.375" PointY="5.75" />
-        <EntityTypeShape EntityType="NavEcommerceDBfirstModel.OrderDetail" Width="1.5" PointX="7.375" PointY="8.5" IsExpanded="true" />
-        <AssociationConnector Association="NavEcommerceDBfirstModel.FK_OrderDetail_Order" />
         <EntityTypeShape EntityType="NavEcommerceDBfirstModel.Category" Width="1.5" PointX="3" PointY="11.25" />
         <AssociationConnector Association="NavEcommerceDBfirstModel.BrandCategory" />
         <EntityTypeShape EntityType="NavEcommerceDBfirstModel.Motorcycle" Width="1.5" PointX="5.25" PointY="8.5" />
         <AssociationConnector Association="NavEcommerceDBfirstModel.FK_Motorcycles_Brands_BrandId" />
         <AssociationConnector Association="NavEcommerceDBfirstModel.FK_Motorcycles_Category" />
-        <AssociationConnector Association="NavEcommerceDBfirstModel.FK_OrderDetail_Motorcycles" />
         <AssociationConnector Association="NavEcommerceDBfirstModel.DealerMotorcycle" />
+        <EntityTypeShape EntityType="NavEcommerceDBfirstModel.OrderDetail" Width="1.5" PointX="7.375" PointY="8.5" />
+        <AssociationConnector Association="NavEcommerceDBfirstModel.FK_OrderDetail_Motorcycles" />
+        <AssociationConnector Association="NavEcommerceDBfirstModel.FK_OrderDetail_Order" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

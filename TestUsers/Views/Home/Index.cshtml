@@ -51,6 +51,10 @@
         box-shadow: 1px 1px 20px black;
     }
 
+    .addtocart {
+        margin-top: 7px;
+    }
+
 </style>
 
 <p>
@@ -106,12 +110,15 @@
                             <li>
                                 Dealers:
                                 @foreach (var dealer in item.Dealers)
-                                 {
+                                {
                                     @dealer.Name
-                                 }
-                                </li>
-                                <li>Price: <strong>£@item.Price</strong></li>
-                            </ul>
+                                }
+                            </li>
+                            <li>Price: <strong>£@item.Price</strong></li>
+                            <div class="addtocart">
+                                <button type="button">@Html.ActionLink("Add To Cart", "AddToCart", "ShoppingCart", new { id = item.MotorcycleId }, null)</button>
+                            </div>                        
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -147,7 +154,9 @@
                             }
                         </li>
                         <li>Price: <strong>£@item.Price</strong></li>
-                        <li>@Html.ActionLink("Order Now", "OrderNow", "ShoppingCart", new { id = item.MotorcycleId }, null )</li>
+                        <div class="addtocart">
+                            <button type="button">@Html.ActionLink("Add To Cart", "AddToCart", "ShoppingCart", new { id = item.MotorcycleId }, null)</button>
+                         </div>
                     </ul>
                 </div>
         </div>
@@ -184,6 +193,9 @@
                                 }
                             </li>
                             <li>Price: <strong>£@item.Price</strong></li>
+                            <div class="addtocart">
+                                <button type="button">@Html.ActionLink("Add To Cart", "AddToCart", "ShoppingCart", new { id = item.MotorcycleId }, null)</button>
+                            </div>                        
                         </ul>
                     </div>
                 </div>
@@ -220,6 +232,9 @@
                                 }
                             </li>
                             <li>Price: <strong>£@item.Price</strong></li>
+                            <div class="addtocart">
+                                <button type="button">@Html.ActionLink("Add To Cart", "AddToCart", "ShoppingCart", new { id = item.MotorcycleId }, null)</button>
+                            </div>                        
                         </ul>
                     </div>
                 </div>
