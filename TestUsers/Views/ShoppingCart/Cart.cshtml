@@ -21,6 +21,7 @@
         <th>Category</th>
         <th>Quantity</th>
         <th>Sub Total</th>
+        <th>Image</th>
         <th>Options</th>
     </tr>
 
@@ -49,7 +50,10 @@
                 @(item.Product.Price * item.Quantity)
             </td>
             <td>
-            @Html.ActionLink("Delete", "Delete", "ShoppingCart", new { id = item.Product.MotorcycleId}, null)
+                <img class="boxShadow" src="data:image;base64,@System.Convert.ToBase64String(item.Product.Image)" width="30" height="30" />
+            </td>
+            <td>
+                <button type="button">@Html.ActionLink("Delete", "Delete", "ShoppingCart", new { id = item.Product.MotorcycleId }, null)</button> 
             </td>
         </tr>
     }
