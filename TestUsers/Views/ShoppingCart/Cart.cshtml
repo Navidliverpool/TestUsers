@@ -21,6 +21,7 @@
         <th>Category</th>
         <th>Quantity</th>
         <th>Sub Total</th>
+        <th>Options</th>
     </tr>
 
     @foreach (var item in (List<Item>)Session["cart"])
@@ -46,6 +47,9 @@
             </td>
             <td>
                 @(item.Product.Price * item.Quantity)
+            </td>
+            <td>
+            @Html.ActionLink("Delete", "Delete", "ShoppingCart", new { id = item.Product.MotorcycleId}, null)
             </td>
         </tr>
     }

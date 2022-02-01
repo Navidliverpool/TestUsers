@@ -28,6 +28,15 @@ namespace TestUsers.Controllers
             return -1;
         }
 
+        public ActionResult Delete(int id)
+        {
+            int index = IsExisting(id);
+            List<Item> cart = (List<Item>)Session["cart"];
+            cart.RemoveAt(index);
+            Session["cart"] = cart;
+            return View("Cart");
+        }
+
         public ActionResult AddToCart(int id)
         {
             if(Session["cart"] == null)
