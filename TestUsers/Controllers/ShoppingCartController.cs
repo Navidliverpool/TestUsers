@@ -19,12 +19,31 @@ namespace TestUsers.Controllers
             return View();
         }
 
-        public ActionResult AddToCart(int? id)
+        private int IsExisting(int id)
+        {
+            List<Item> cart = (List<Item>)Session["cart"];
+            for (int i = 0; i < cart.Count; i++)
+                if (cart[i].Product.MotorcycleId == id)
+                    return i;
+            return -1;
+        }
+
+        public ActionResult AddToCart(int id)
         {
             if(Session["cart"] == null)
             {
                 List<Item> cart = new List<Item>();
                 cart.Add(new Item(db.Motorcycles.Find(id), 1));
+                Session["cart"] = cart;
+            }
+            else
+            {
+                List<Item> cart = (List<Item>)Session["cart"];
+                int index = IsExisting(id);
+                if (index == -1)
+                    cart.Add(new Item(db.Motorcycles.Find(id), 1));
+                else
+                    cart[index].Quantity++;
                 Session["cart"] = cart;
             }
             return View("Cart");
