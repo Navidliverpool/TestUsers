@@ -10,74 +10,63 @@ namespace TestUsers.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        private NavEcommerceDBfirst7Entities db = new NavEcommerceDBfirst7Entities();
+        private NavEcommerceDBfirstEntities11 db = new NavEcommerceDBfirstEntities11();
 
-        // GET: ShoppingCart
-        public ActionResult Index()
-        {
-            
-            return View();
-        }
+        
 
-        private int IsExisting(int id)
-        {
-            List<Item> cart = (List<Item>)Session["cart"];
-            for (int i = 0; i < cart.Count; i++)
-                if (cart[i].Product.MotorcycleId == id)
-                    return i;
-            return -1;
-        }
 
-        public ActionResult Delete(int id)
-        {
-            int index = IsExisting(id);
-            List<Item> cart = (List<Item>)Session["cart"];
-            cart.RemoveAt(index);
-            Session["cart"] = cart;
-            return View("Cart");
-        }
 
-        public ActionResult AddToCart(int id)
-        {
-            if(Session["cart"] == null)
-            {
-                List<Item> cart = new List<Item>();
-                cart.Add(new Item(db.Motorcycles.Find(id), 1));
-                Session["cart"] = cart;
-            }
-            else
-            {
-                List<Item> cart = (List<Item>)Session["cart"];
-                int index = IsExisting(id);
-                if (index == -1)
-                    cart.Add(new Item(db.Motorcycles.Find(id), 1));
-                else
-                    cart[index].Quantity++;
-                Session["cart"] = cart;
-            }
-            return View("Cart");
-        }
 
-        //[HttpPost]
-        //public ActionResult OrderNow(OrderDetailVM orderDetailVM)
+
+
+
+
+        //This code for creating a shopping cart from:
+        //Here is the link: https://www.youtube.com/watch?v=ZBd0MnKb7u0
+        //// GET: ShoppingCart
+        //public ActionResult Index()
         //{
-        //    OrderDetail orderDetail = new OrderDetail
-        //    {
-        //        MotorcycleId = orderDetailVM.OrderDatailProductWhere(odp => odp.MotorcycleId == )
-        //    }
+
+        //    return View();
+        //}
+
+        //private int IsExisting(int id)
+        //{
+        //    List<Item> cart = (List<Item>)Session["cart"];
+        //    for (int i = 0; i < cart.Count; i++)
+        //        if (cart[i].Product.MotorcycleId == id)
+        //            return i;
+        //    return -1;
+        //}
+
+        //public ActionResult Delete(int id)
+        //{
+        //    int index = IsExisting(id);
+        //    List<Item> cart = (List<Item>)Session["cart"];
+        //    cart.RemoveAt(index);
+        //    Session["cart"] = cart;
         //    return View("Cart");
         //}
 
-
-
-        //private OrderDetail orderDetail = new OrderDetail();
-
-        //public void SaveOrderDatail()
+        //public ActionResult AddToCart(int id)
         //{
-        //    List<Item> items = new List<Item>();
-        //    items.Add();
-        //    db.OrderDetails.Add();
-        //    db.SaveChanges();
+        //    if(Session["cart"] == null)
+        //    {
+        //        List<Item> cart = new List<Item>();
+        //        cart.Add(new Item(db.Motorcycles.Find(id), 1));
+        //        Session["cart"] = cart;
+        //    }
+        //    else
+        //    {
+        //        List<Item> cart = (List<Item>)Session["cart"];
+        //        int index = IsExisting(id);
+        //        if (index == -1)
+        //            cart.Add(new Item(db.Motorcycles.Find(id), 1));
+        //        else
+        //            cart[index].Quantity++;
+        //        Session["cart"] = cart;
+        //    }
+        //    return View("Cart");
         //}
     }
 }

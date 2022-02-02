@@ -14,9 +14,11 @@ namespace TestUsers.Models
     
     public partial class OrderDetail
     {
-        public int OrderID { get; set; }
+        public int OrderDetailId { get; set; }
+        public Nullable<int> OrderId { get; set; }
+        public Nullable<int> MotorcycleId { get; set; }
         public Nullable<int> Quantity { get; set; }
-        public int MotorcycleId { get; set; }
+        public Nullable<decimal> UnitPrice { get; set; }
     
         public virtual Motorcycle Motorcycle { get; set; }
         public virtual Order Order { get; set; }

@@ -12,12 +12,14 @@ namespace TestUsers.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class Cart
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int RecordId { get; set; }
+        public string CartId { get; set; }
+        public Nullable<int> motorcycleId { get; set; }
+        public Nullable<int> Count { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
+    
+        public virtual Motorcycle Motorcycle { get; set; }
     }
 }

@@ -13,10 +13,10 @@ namespace TestUsers.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NavEcommerceDBfirstEntities : DbContext
+    public partial class NavEcommerceDBfirstEntities11 : DbContext
     {
-        public NavEcommerceDBfirstEntities()
-            : base("name=NavEcommerceDBfirstEntities")
+        public NavEcommerceDBfirstEntities11()
+            : base("name=NavEcommerceDBfirstEntities11")
         {
         }
     
@@ -29,13 +29,12 @@ namespace TestUsers.Models
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
-        public virtual DbSet<BrandDealer> BrandDealers { get; set; }
         public virtual DbSet<Brand> Brands { get; set; }
+        public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Dealer> Dealers { get; set; }
         public virtual DbSet<Motorcycle> Motorcycles { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }
