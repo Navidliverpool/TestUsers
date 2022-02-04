@@ -7,7 +7,7 @@ namespace TestUsers.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        NavEcommerceDBfirstEntities11 storeDB = new NavEcommerceDBfirstEntities11();
+        NavEcommerceDBfirstEntities12 storeDB = new NavEcommerceDBfirstEntities12();
         //
         // GET: /ShoppingCart/
         public ActionResult Index()

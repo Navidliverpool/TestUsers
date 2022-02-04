@@ -188,30 +188,30 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AspNetRole.cs">
-      <DependentUpon>ModelsNavEcommerceDBfirst4.tt</DependentUpon>
+      <DependentUpon>ModelsNavEcommerceDBfirst5.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUser.cs">
-      <DependentUpon>ModelsNavEcommerceDBfirst4.tt</DependentUpon>
+      <DependentUpon>ModelsNavEcommerceDBfirst5.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUserClaim.cs">
-      <DependentUpon>ModelsNavEcommerceDBfirst4.tt</DependentUpon>
+      <DependentUpon>ModelsNavEcommerceDBfirst5.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUserLogin.cs">
-      <DependentUpon>ModelsNavEcommerceDBfirst4.tt</DependentUpon>
+      <DependentUpon>ModelsNavEcommerceDBfirst5.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Brand.cs">
-      <DependentUpon>ModelsNavEcommerceDBfirst4.tt</DependentUpon>
+      <DependentUpon>ModelsNavEcommerceDBfirst5.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BrandMetaData.cs" />
     <Compile Include="Models\BrandVM.cs" />
     <Compile Include="Models\Cart.cs">
-      <DependentUpon>ModelsNavEcommerceDBfirst4.tt</DependentUpon>
+      <DependentUpon>ModelsNavEcommerceDBfirst5.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs">
-      <DependentUpon>ModelsNavEcommerceDBfirst4.tt</DependentUpon>
+      <DependentUpon>ModelsNavEcommerceDBfirst5.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Dealer.cs">
-      <DependentUpon>ModelsNavEcommerceDBfirst4.tt</DependentUpon>
+      <DependentUpon>ModelsNavEcommerceDBfirst5.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DealerMetaData.cs" />
     <Compile Include="Models\DealerVM.cs" />
@@ -221,31 +221,31 @@
     <Compile Include="Models\Model1.designer.cs">
       <DependentUpon>Model1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelsNavEcommerceDBfirst4.Context.cs">
+    <Compile Include="Models\ModelsNavEcommerceDBfirst5.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelsNavEcommerceDBfirst4.Context.tt</DependentUpon>
+      <DependentUpon>ModelsNavEcommerceDBfirst5.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelsNavEcommerceDBfirst4.cs">
+    <Compile Include="Models\ModelsNavEcommerceDBfirst5.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelsNavEcommerceDBfirst4.tt</DependentUpon>
+      <DependentUpon>ModelsNavEcommerceDBfirst5.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelsNavEcommerceDBfirst4.Designer.cs">
+    <Compile Include="Models\ModelsNavEcommerceDBfirst5.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelsNavEcommerceDBfirst4.edmx</DependentUpon>
+      <DependentUpon>ModelsNavEcommerceDBfirst5.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Motorcycle.cs">
-      <DependentUpon>ModelsNavEcommerceDBfirst4.tt</DependentUpon>
+      <DependentUpon>ModelsNavEcommerceDBfirst5.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MotorcycleMetaData.cs" />
     <Compile Include="Models\MotorcycleVM.cs" />
     <Compile Include="Models\Order.cs">
-      <DependentUpon>ModelsNavEcommerceDBfirst4.tt</DependentUpon>
+      <DependentUpon>ModelsNavEcommerceDBfirst5.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderDetail.cs">
-      <DependentUpon>ModelsNavEcommerceDBfirst4.tt</DependentUpon>
+      <DependentUpon>ModelsNavEcommerceDBfirst5.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderDetailMetaData.cs" />
     <Compile Include="Models\OrderMetaData.cs" />
@@ -287,15 +287,15 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\ModelsNavEcommerceDBfirst4.Context.tt">
+    <Content Include="Models\ModelsNavEcommerceDBfirst5.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelsNavEcommerceDBfirst4.edmx</DependentUpon>
-      <LastGenOutput>ModelsNavEcommerceDBfirst4.Context.cs</LastGenOutput>
+      <DependentUpon>ModelsNavEcommerceDBfirst5.edmx</DependentUpon>
+      <LastGenOutput>ModelsNavEcommerceDBfirst5.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ModelsNavEcommerceDBfirst4.tt">
+    <Content Include="Models\ModelsNavEcommerceDBfirst5.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelsNavEcommerceDBfirst4.edmx</DependentUpon>
-      <LastGenOutput>ModelsNavEcommerceDBfirst4.cs</LastGenOutput>
+      <DependentUpon>ModelsNavEcommerceDBfirst5.edmx</DependentUpon>
+      <LastGenOutput>ModelsNavEcommerceDBfirst5.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -308,13 +308,14 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Area\Admin\Views\web.config" />
-    <EntityDeploy Include="Models\ModelsNavEcommerceDBfirst4.edmx">
+    <EntityDeploy Include="Models\ModelsNavEcommerceDBfirst5.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelsNavEcommerceDBfirst4.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelsNavEcommerceDBfirst5.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\ModelsNavEcommerceDBfirst4.edmx.diagram">
-      <DependentUpon>ModelsNavEcommerceDBfirst4.edmx</DependentUpon>
+    <Content Include="Models\ModelsNavEcommerceDBfirst5.edmx.diagram">
+      <DependentUpon>ModelsNavEcommerceDBfirst5.edmx</DependentUpon>
     </Content>
+    <Content Include="Readme.md" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

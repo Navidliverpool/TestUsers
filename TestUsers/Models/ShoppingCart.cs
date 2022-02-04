@@ -8,7 +8,7 @@ namespace TestUsers.Models
 {
     public partial class ShoppingCart
     {
-        NavEcommerceDBfirstEntities11 storeDB = new NavEcommerceDBfirstEntities11();
+        NavEcommerceDBfirstEntities12 storeDB = new NavEcommerceDBfirstEntities12();
         string ShoppingCartId { get; set; }
         public const string CartSessionKey = "CartId";
         public static ShoppingCart GetCart(HttpContextBase context)

@@ -10,7 +10,7 @@ namespace TestUsers.Controllers
 {
     public class ShoppingCart2Controller : Controller
     {
-        private NavEcommerceDBfirstEntities11 db = new NavEcommerceDBfirstEntities11();
+        private NavEcommerceDBfirstEntities12 db = new NavEcommerceDBfirstEntities12();
 
 
         //This code for creating a shopping cart from:

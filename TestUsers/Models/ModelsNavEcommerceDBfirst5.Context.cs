@@ -13,10 +13,10 @@ namespace TestUsers.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NavEcommerceDBfirstEntities11 : DbContext
+    public partial class NavEcommerceDBfirstEntities12 : DbContext
     {
-        public NavEcommerceDBfirstEntities11()
-            : base("name=NavEcommerceDBfirstEntities11")
+        public NavEcommerceDBfirstEntities12()
+            : base("name=NavEcommerceDBfirstEntities12")
         {
         }
     
