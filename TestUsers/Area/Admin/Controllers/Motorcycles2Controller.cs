@@ -13,7 +13,7 @@ namespace test.Controllers
 {
     public class Motorcycles2Controller : Controller
     {
-        private NavEcommerceDBfirstEntities12 db = new NavEcommerceDBfirstEntities12();
+        private NavEcommerceDBfirstEntities17 db = new NavEcommerceDBfirstEntities17();
 
         // GET: Motorcycles
         [Authorize()]

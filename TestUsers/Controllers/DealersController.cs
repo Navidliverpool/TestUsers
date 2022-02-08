@@ -11,7 +11,7 @@ namespace test.Controllers
 {
     public class DealersController : Controller
     {
-        private NavEcommerceDBfirstEntities12 db = new NavEcommerceDBfirstEntities12();
+        private NavEcommerceDBfirstEntities17 db = new NavEcommerceDBfirstEntities17();
 
         // GET: Dealers
         [Authorize()]

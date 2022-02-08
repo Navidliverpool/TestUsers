@@ -8,7 +8,7 @@ namespace TestUsers.Models
 {
     public partial class ShoppingCart
     {
-        NavEcommerceDBfirstEntities12 storeDB = new NavEcommerceDBfirstEntities12();
+        NavEcommerceDBfirstEntities17 storeDB = new NavEcommerceDBfirstEntities17();
         string ShoppingCartId { get; set; }
         public const string CartSessionKey = "CartId";
         public static ShoppingCart GetCart(HttpContextBase context)
@@ -17,39 +17,68 @@ namespace TestUsers.Models
             cart.ShoppingCartId = cart.GetCartId(context);
             return cart;
         }
+
         // Helper method to simplify shopping cart calls
         public static ShoppingCart GetCart(Controller controller)
         {
             return GetCart(controller.HttpContext);
         }
+
         public void AddToCart(Motorcycle product)
         {
-            // Get the matching cart and album instances
-            var cartItem = storeDB.Carts.SingleOrDefault(
-                c => c.CartId == ShoppingCartId
-                && c.motorcycleId == product.MotorcycleId);
+                var checkAnyItemExistInCart = storeDB.Carts.Any();
 
-            if (cartItem == null)
-            {
-                // Create a new cart item if no cart item exists
-                cartItem = new Cart
+                if  (checkAnyItemExistInCart == false)
                 {
-                    motorcycleId = product.MotorcycleId,
-                    CartId = ShoppingCartId,
-                    Count = 1,
-                    DateCreated = DateTime.Now
-                };
-                storeDB.Carts.Add(cartItem);
-            }
-            else
-            {
-                // If the item does exist in the cart, 
-                // then add one to the quantity
-                cartItem.Count++;
-            }
-            // Save changes
+                    var item = new Cart
+                    {
+                        RecordId = 0,
+                        motorcycleId = product.MotorcycleId,
+                        CartId = ShoppingCartId,
+                        Count = 1,
+                        DateCreated = DateTime.Now
+                    };
+                    storeDB.Carts.Add(item);
+                }
+                else
+                {
+                    // Get the matching cart and product instances
+                    var cartItem = storeDB.Carts.FirstOrDefault(c => c.CartId == ShoppingCartId && c.motorcycleId == product.MotorcycleId);
+
+                //az in link estefade kardam baraye neveshtane recordId: https://stackoverflow.com/questions/7293639/linq-to-entities-does-not-recognize-the-method-last-really
+                //recordId etelaate aakharin item ro az sql migire
+                var lastCartItemId = storeDB.Carts.OrderByDescending(c => c.RecordId).Select(c => c.RecordId).FirstOrDefault();
+                
+                if (cartItem == null)
+                    {
+
+                    var item = new Cart
+                    {
+                        RecordId = lastCartItemId++,
+                        motorcycleId = product.MotorcycleId,
+                        CartId = ShoppingCartId,
+                        Count = 1,
+                        DateCreated = DateTime.Now
+                    };
+                    storeDB.Carts.Add(item);
+                    }
+                    else
+                    {
+                    var itemReplacement = storeDB.Carts.Where(i => i.RecordId == lastCartItemId).Select(i => i).Single();
+                    storeDB.Carts.Remove(itemReplacement);
+                    var item = new Cart
+                    {
+                        motorcycleId = product.MotorcycleId,
+                        CartId = ShoppingCartId,
+                        Count = cartItem.Count++,
+                        DateCreated = DateTime.Now
+                    };
+                    storeDB.Carts.Add(item);
+                    }
+                }
             storeDB.SaveChanges();
         }
+
         public int RemoveFromCart(int id)
         {
             // Get the cart
@@ -75,6 +104,7 @@ namespace TestUsers.Models
             }
             return itemCount;
         }
+
         public void EmptyCart()
         {
             var cartItems = storeDB.Carts.Where(
@@ -87,11 +117,13 @@ namespace TestUsers.Models
             // Save changes
             storeDB.SaveChanges();
         }
+
         public List<Cart> GetCartItems()
         {
             return storeDB.Carts.Where(
                 cart => cart.CartId == ShoppingCartId).ToList();
         }
+
         public int GetCount()
         {
             // Get the count of each item in the cart and sum them up
@@ -101,6 +133,7 @@ namespace TestUsers.Models
             // Return 0 if all entries are null
             return count ?? 0;
         }
+
         public decimal GetTotal()
         {
             // Multiply album price by count of that album to get 
@@ -113,6 +146,7 @@ namespace TestUsers.Models
 
             return total ?? decimal.Zero;
         }
+
         public int CreateOrder(Order order)
         {
             decimal orderTotal = 0;
@@ -145,6 +179,7 @@ namespace TestUsers.Models
             // Return the OrderId as the confirmation number
             return order.OrderID;
         }
+
         // We're using HttpContextBase to allow access to cookies.
         public string GetCartId(HttpContextBase context)
         {
@@ -165,6 +200,7 @@ namespace TestUsers.Models
             }
             return context.Session[CartSessionKey].ToString();
         }
+
         // When a user has logged in, migrate their shopping cart to
         // be associated with their username
         public void MigrateCart(string userName)

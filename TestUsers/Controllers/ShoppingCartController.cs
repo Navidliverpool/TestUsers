@@ -7,7 +7,7 @@ namespace TestUsers.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        NavEcommerceDBfirstEntities12 storeDB = new NavEcommerceDBfirstEntities12();
+        NavEcommerceDBfirstEntities17 storeDB = new NavEcommerceDBfirstEntities17();
         //
         // GET: /ShoppingCart/
         public ActionResult Index()
@@ -18,7 +18,7 @@ namespace TestUsers.Controllers
             var viewModel = new ShoppingCartVM
             {
                 CartItems = cart.GetCartItems(),
-                CartTotal = cart.GetTotal()
+                CartTotal = cart.GetTotal(),
             };
             // Return the view
             return View(viewModel);

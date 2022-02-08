@@ -41,23 +41,25 @@
 <table>
     <tr>
         <th>
-            Album Name
+            Name
         </th>
         <th>
-            Price (each)
+            Price(each)
         </th>
         <th>
             Quantity
         </th>
-        <th></th>
     </tr>
     @foreach (var item in
 Model.CartItems)
     {
         <tr id="row-@item.RecordId">
             <td>
-                @Html.ActionLink(item.Motorcycle.Model,
-"Details", "Store", new { id = item.motorcycleId }, null)
+                @*@Html.ActionLink(item.Motorcycle.Model,
+"Details", "Store", new { id = item.motorcycleId }, null)*@
+            </td>
+            <td>
+                @item.Motorcycle.Model
             </td>
             <td>
                 @item.Motorcycle.Price
