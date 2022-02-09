@@ -5,7 +5,7 @@ using System.Web;
 
 namespace TestUsers.ViewModels
 {
-    public class ShoppingCartRemoveVM
+    public class ShoppingCartRemoveViewModel
     {
         public string Message { get; set; }
         public decimal CartTotal { get; set; }

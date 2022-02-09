@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="NavEcommerceDBfirstModel3.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="NavEcommerceDBfirstModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -202,6 +202,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Cart_Motorcycles">
+          <End Role="Motorcycles" Type="Self.Motorcycles" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Motorcycles">
+              <PropertyRef Name="MotorcycleId" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="motorcycleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -334,7 +346,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="NavEcommerceDBfirstModel3StoreContainer">
+        <EntityContainer Name="NavEcommerceDBfirstModelStoreContainer">
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
@@ -365,6 +377,10 @@
           <AssociationSet Name="FK_BrandDealer_Dealers_DealersDealerId" Association="Self.FK_BrandDealer_Dealers_DealersDealerId">
             <End Role="Dealers" EntitySet="Dealers" />
             <End Role="BrandDealer" EntitySet="BrandDealer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_Motorcycles" Association="Self.FK_Cart_Motorcycles">
+            <End Role="Motorcycles" EntitySet="Motorcycles" />
+            <End Role="Cart" EntitySet="Cart" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -411,7 +427,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="NavEcommerceDBfirstModel3" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="NavEcommerceDBfirstModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="AspNetRole">
           <Key>
             <PropertyRef Name="Id" />
@@ -481,6 +497,7 @@
           <Property Name="motorcycleId" Type="Int32" />
           <Property Name="Count" Type="Int32" />
           <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Motorcycle" Relationship="Self.FK_Cart_Motorcycles" FromRole="Cart" ToRole="Motorcycles" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -513,6 +530,7 @@
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="CategoryId" Type="Int32" />
           <NavigationProperty Name="Brand" Relationship="Self.FK_Motorcycles_Brands_BrandId" FromRole="Motorcycles" ToRole="Brands" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_Motorcycles" FromRole="Motorcycles" ToRole="Cart" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Motorcycles_Category" FromRole="Motorcycles" ToRole="Category" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetail_Motorcycles" FromRole="Motorcycles" ToRole="OrderDetail" />
           <NavigationProperty Name="Dealers" Relationship="Self.DealerMotorcycle" FromRole="Motorcycles" ToRole="Dealers" />
@@ -587,6 +605,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Cart_Motorcycles">
+          <End Role="Motorcycles" Type="Self.Motorcycle" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Motorcycles">
+              <PropertyRef Name="MotorcycleId" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="motorcycleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Motorcycles_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
           <End Role="Motorcycles" Type="Self.Motorcycle" Multiplicity="*" />
@@ -639,7 +669,7 @@
           <End Role="Dealers" Type="Self.Dealer" Multiplicity="*" />
           <End Role="Motorcycles" Type="Self.Motorcycle" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="NavEcommerceDBfirstEntities16" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="NavEcommerceDBfirstEntities19" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
@@ -662,6 +692,10 @@
           <AssociationSet Name="FK_Motorcycles_Brands_BrandId" Association="Self.FK_Motorcycles_Brands_BrandId">
             <End Role="Brands" EntitySet="Brands" />
             <End Role="Motorcycles" EntitySet="Motorcycles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_Motorcycles" Association="Self.FK_Cart_Motorcycles">
+            <End Role="Motorcycles" EntitySet="Motorcycles" />
+            <End Role="Cart" EntitySet="Carts" />
           </AssociationSet>
           <AssociationSet Name="FK_Motorcycles_Category" Association="Self.FK_Motorcycles_Category">
             <End Role="Category" EntitySet="Categories" />
@@ -697,9 +731,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="NavEcommerceDBfirstModel3StoreContainer" CdmEntityContainer="NavEcommerceDBfirstEntities16">
+        <EntityContainerMapping StorageEntityContainer="NavEcommerceDBfirstModelStoreContainer" CdmEntityContainer="NavEcommerceDBfirstEntities19">
           <EntitySetMapping Name="AspNetRoles">
-            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel3.AspNetRole">
+            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel.AspNetRole">
               <MappingFragment StoreEntitySet="AspNetRoles">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -707,7 +741,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserClaims">
-            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel3.AspNetUserClaim">
+            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel.AspNetUserClaim">
               <MappingFragment StoreEntitySet="AspNetUserClaims">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -717,7 +751,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserLogins">
-            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel3.AspNetUserLogin">
+            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel.AspNetUserLogin">
               <MappingFragment StoreEntitySet="AspNetUserLogins">
                 <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
                 <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
@@ -726,7 +760,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUsers">
-            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel3.AspNetUser">
+            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel.AspNetUser">
               <MappingFragment StoreEntitySet="AspNetUsers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -744,7 +778,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Brands">
-            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel3.Brand">
+            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel.Brand">
               <MappingFragment StoreEntitySet="Brands">
                 <ScalarProperty Name="BrandId" ColumnName="BrandId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -753,7 +787,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Carts">
-            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel3.Cart">
+            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel.Cart">
               <MappingFragment StoreEntitySet="Cart">
                 <ScalarProperty Name="RecordId" ColumnName="RecordId" />
                 <ScalarProperty Name="CartId" ColumnName="CartId" />
@@ -764,7 +798,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel3.Category">
+            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="MotoCategory" ColumnName="MotoCategory" />
@@ -772,7 +806,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dealers">
-            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel3.Dealer">
+            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel.Dealer">
               <MappingFragment StoreEntitySet="Dealers">
                 <ScalarProperty Name="DealerId" ColumnName="DealerId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -782,7 +816,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Motorcycles">
-            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel3.Motorcycle">
+            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel.Motorcycle">
               <MappingFragment StoreEntitySet="Motorcycles">
                 <ScalarProperty Name="MotorcycleId" ColumnName="MotorcycleId" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
@@ -794,7 +828,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel3.Order">
+            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel.Order">
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
@@ -812,7 +846,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderDetails">
-            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel3.OrderDetail">
+            <EntityTypeMapping TypeName="NavEcommerceDBfirstModel.OrderDetail">
               <MappingFragment StoreEntitySet="OrderDetail">
                 <ScalarProperty Name="OrderDetailId" ColumnName="OrderDetailId" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
@@ -822,7 +856,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles" TypeName="NavEcommerceDBfirstModel3.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="NavEcommerceDBfirstModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetRoles">
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
@@ -830,7 +864,7 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="BrandCategory" TypeName="NavEcommerceDBfirstModel3.BrandCategory" StoreEntitySet="BrandCategory">
+          <AssociationSetMapping Name="BrandCategory" TypeName="NavEcommerceDBfirstModel.BrandCategory" StoreEntitySet="BrandCategory">
             <EndProperty Name="Brands">
               <ScalarProperty Name="BrandId" ColumnName="BrandsBrandId" />
             </EndProperty>
@@ -838,7 +872,7 @@
               <ScalarProperty Name="CategoryId" ColumnName="CategoryCategoryId" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="BrandDealer" TypeName="NavEcommerceDBfirstModel3.BrandDealer" StoreEntitySet="BrandDealer">
+          <AssociationSetMapping Name="BrandDealer" TypeName="NavEcommerceDBfirstModel.BrandDealer" StoreEntitySet="BrandDealer">
             <EndProperty Name="Brands">
               <ScalarProperty Name="BrandId" ColumnName="BrandsBrandId" />
             </EndProperty>
@@ -846,7 +880,7 @@
               <ScalarProperty Name="DealerId" ColumnName="DealersDealerId" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="DealerMotorcycle" TypeName="NavEcommerceDBfirstModel3.DealerMotorcycle" StoreEntitySet="DealerMotorcycle">
+          <AssociationSetMapping Name="DealerMotorcycle" TypeName="NavEcommerceDBfirstModel.DealerMotorcycle" StoreEntitySet="DealerMotorcycle">
             <EndProperty Name="Dealers">
               <ScalarProperty Name="DealerId" ColumnName="DealersDealerId" />
             </EndProperty>

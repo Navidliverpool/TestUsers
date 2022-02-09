@@ -9,7 +9,7 @@ namespace TestUsers.Controllers
 {
     public class HomeController : Controller
     {
-        private NavEcommerceDBfirstEntities17 db = new NavEcommerceDBfirstEntities17();
+        private NavEcommerceDBfirstEntities19 db = new NavEcommerceDBfirstEntities19();
 
         public async Task<ActionResult> Index()
         {

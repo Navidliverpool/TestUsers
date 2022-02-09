@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -46,10 +45,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -182,36 +181,37 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MotorcyclesController.cs" />
     <Compile Include="Controllers\ShoppingCart2Controller.cs" />
+    <Compile Include="Controllers\ShoppingCart3Controller.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AspNetRole.cs">
-      <DependentUpon>NavEcommerceDBfirstModels17.tt</DependentUpon>
+      <DependentUpon>NavEcommerceDBfirstModels19.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUser.cs">
-      <DependentUpon>NavEcommerceDBfirstModels17.tt</DependentUpon>
+      <DependentUpon>NavEcommerceDBfirstModels19.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUserClaim.cs">
-      <DependentUpon>NavEcommerceDBfirstModels17.tt</DependentUpon>
+      <DependentUpon>NavEcommerceDBfirstModels19.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUserLogin.cs">
-      <DependentUpon>NavEcommerceDBfirstModels17.tt</DependentUpon>
+      <DependentUpon>NavEcommerceDBfirstModels19.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Brand.cs">
-      <DependentUpon>NavEcommerceDBfirstModels17.tt</DependentUpon>
+      <DependentUpon>NavEcommerceDBfirstModels19.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BrandMetaData.cs" />
     <Compile Include="Models\BrandVM.cs" />
     <Compile Include="Models\Cart.cs">
-      <DependentUpon>NavEcommerceDBfirstModels17.tt</DependentUpon>
+      <DependentUpon>NavEcommerceDBfirstModels19.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs">
-      <DependentUpon>NavEcommerceDBfirstModels17.tt</DependentUpon>
+      <DependentUpon>NavEcommerceDBfirstModels19.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Dealer.cs">
-      <DependentUpon>NavEcommerceDBfirstModels17.tt</DependentUpon>
+      <DependentUpon>NavEcommerceDBfirstModels19.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DealerMetaData.cs" />
     <Compile Include="Models\DealerVM.cs" />
@@ -222,116 +222,42 @@
     <Compile Include="Models\Model1.designer.cs">
       <DependentUpon>Model1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelsNavEcommerceDBfirst16.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelsNavEcommerceDBfirst16.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ModelsNavEcommerceDBfirst16.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelsNavEcommerceDBfirst16.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ModelsNavEcommerceDBfirst16.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelsNavEcommerceDBfirst16.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ModelsNavEcommerceDBfirst5.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelsNavEcommerceDBfirst5.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ModelsNavEcommerceDBfirst5.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelsNavEcommerceDBfirst5.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ModelsNavEcommerceDBfirst5.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelsNavEcommerceDBfirst5.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Motorcycle.cs">
-      <DependentUpon>NavEcommerceDBfirstModels17.tt</DependentUpon>
+      <DependentUpon>NavEcommerceDBfirstModels19.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MotorcycleMetaData.cs" />
     <Compile Include="Models\MotorcycleVM.cs" />
-    <Compile Include="Models\NavEcommerceDBfirstModels13.Context.cs">
+    <Compile Include="Models\NavEcommerceDBfirstModels19.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NavEcommerceDBfirstModels13.Context.tt</DependentUpon>
+      <DependentUpon>NavEcommerceDBfirstModels19.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\NavEcommerceDBfirstModels13.cs">
+    <Compile Include="Models\NavEcommerceDBfirstModels19.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NavEcommerceDBfirstModels13.tt</DependentUpon>
+      <DependentUpon>NavEcommerceDBfirstModels19.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\NavEcommerceDBfirstModels13.Designer.cs">
+    <Compile Include="Models\NavEcommerceDBfirstModels19.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NavEcommerceDBfirstModels13.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NavEcommerceDBfirstModels14.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NavEcommerceDBfirstModels14.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NavEcommerceDBfirstModels14.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NavEcommerceDBfirstModels14.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NavEcommerceDBfirstModels14.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NavEcommerceDBfirstModels14.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NavEcommerceDBfirstModels15.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NavEcommerceDBfirstModels15.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NavEcommerceDBfirstModels15.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NavEcommerceDBfirstModels15.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NavEcommerceDBfirstModels15.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NavEcommerceDBfirstModels15.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NavEcommerceDBfirstModels17.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NavEcommerceDBfirstModels17.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NavEcommerceDBfirstModels17.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NavEcommerceDBfirstModels17.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NavEcommerceDBfirstModels17.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NavEcommerceDBfirstModels17.edmx</DependentUpon>
+      <DependentUpon>NavEcommerceDBfirstModels19.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Order.cs">
-      <DependentUpon>NavEcommerceDBfirstModels17.tt</DependentUpon>
+      <DependentUpon>NavEcommerceDBfirstModels19.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderDetail.cs">
-      <DependentUpon>NavEcommerceDBfirstModels17.tt</DependentUpon>
+      <DependentUpon>NavEcommerceDBfirstModels19.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderDetailMetaData.cs" />
     <Compile Include="Models\OrderMetaData.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Models\ShoppingCart3.cs" />
     <Compile Include="Models\Tamrin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\HomeVM.cs" />
-    <Compile Include="ViewModels\ShoppingCartRemoveVM.cs" />
-    <Compile Include="ViewModels\ShoppingCartVM.cs" />
+    <Compile Include="ViewModels\ShoppingCartRemoveViewModel.cs" />
+    <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -364,65 +290,15 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\ModelsNavEcommerceDBfirst16.Context.tt">
+    <Content Include="Models\NavEcommerceDBfirstModels19.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelsNavEcommerceDBfirst16.edmx</DependentUpon>
-      <LastGenOutput>ModelsNavEcommerceDBfirst16.Context.cs</LastGenOutput>
+      <DependentUpon>NavEcommerceDBfirstModels19.edmx</DependentUpon>
+      <LastGenOutput>NavEcommerceDBfirstModels19.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ModelsNavEcommerceDBfirst16.tt">
+    <Content Include="Models\NavEcommerceDBfirstModels19.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelsNavEcommerceDBfirst16.edmx</DependentUpon>
-      <LastGenOutput>ModelsNavEcommerceDBfirst16.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ModelsNavEcommerceDBfirst5.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelsNavEcommerceDBfirst5.edmx</DependentUpon>
-      <LastGenOutput>ModelsNavEcommerceDBfirst5.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ModelsNavEcommerceDBfirst5.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelsNavEcommerceDBfirst5.edmx</DependentUpon>
-      <LastGenOutput>ModelsNavEcommerceDBfirst5.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\NavEcommerceDBfirstModels13.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NavEcommerceDBfirstModels13.edmx</DependentUpon>
-      <LastGenOutput>NavEcommerceDBfirstModels13.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\NavEcommerceDBfirstModels13.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NavEcommerceDBfirstModels13.edmx</DependentUpon>
-      <LastGenOutput>NavEcommerceDBfirstModels13.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\NavEcommerceDBfirstModels14.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NavEcommerceDBfirstModels14.edmx</DependentUpon>
-      <LastGenOutput>NavEcommerceDBfirstModels14.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\NavEcommerceDBfirstModels14.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NavEcommerceDBfirstModels14.edmx</DependentUpon>
-      <LastGenOutput>NavEcommerceDBfirstModels14.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\NavEcommerceDBfirstModels15.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NavEcommerceDBfirstModels15.edmx</DependentUpon>
-      <LastGenOutput>NavEcommerceDBfirstModels15.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\NavEcommerceDBfirstModels15.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NavEcommerceDBfirstModels15.edmx</DependentUpon>
-      <LastGenOutput>NavEcommerceDBfirstModels15.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\NavEcommerceDBfirstModels17.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NavEcommerceDBfirstModels17.edmx</DependentUpon>
-      <LastGenOutput>NavEcommerceDBfirstModels17.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\NavEcommerceDBfirstModels17.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NavEcommerceDBfirstModels17.edmx</DependentUpon>
-      <LastGenOutput>NavEcommerceDBfirstModels17.cs</LastGenOutput>
+      <DependentUpon>NavEcommerceDBfirstModels19.edmx</DependentUpon>
+      <LastGenOutput>NavEcommerceDBfirstModels19.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -435,48 +311,13 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Area\Admin\Views\web.config" />
-    <EntityDeploy Include="Models\ModelsNavEcommerceDBfirst5.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelsNavEcommerceDBfirst5.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ModelsNavEcommerceDBfirst5.edmx.diagram">
-      <DependentUpon>ModelsNavEcommerceDBfirst5.edmx</DependentUpon>
-    </Content>
     <Content Include="Readme.md" />
-    <EntityDeploy Include="Models\NavEcommerceDBfirstModels13.edmx">
+    <EntityDeploy Include="Models\NavEcommerceDBfirstModels19.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>NavEcommerceDBfirstModels13.Designer.cs</LastGenOutput>
+      <LastGenOutput>NavEcommerceDBfirstModels19.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\NavEcommerceDBfirstModels13.edmx.diagram">
-      <DependentUpon>NavEcommerceDBfirstModels13.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\NavEcommerceDBfirstModels14.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>NavEcommerceDBfirstModels14.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\NavEcommerceDBfirstModels14.edmx.diagram">
-      <DependentUpon>NavEcommerceDBfirstModels14.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\NavEcommerceDBfirstModels15.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>NavEcommerceDBfirstModels15.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\NavEcommerceDBfirstModels15.edmx.diagram">
-      <DependentUpon>NavEcommerceDBfirstModels15.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\ModelsNavEcommerceDBfirst16.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelsNavEcommerceDBfirst16.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ModelsNavEcommerceDBfirst16.edmx.diagram">
-      <DependentUpon>ModelsNavEcommerceDBfirst16.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\NavEcommerceDBfirstModels17.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>NavEcommerceDBfirstModels17.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\NavEcommerceDBfirstModels17.edmx.diagram">
-      <DependentUpon>NavEcommerceDBfirstModels17.edmx</DependentUpon>
+    <Content Include="Models\NavEcommerceDBfirstModels19.edmx.diagram">
+      <DependentUpon>NavEcommerceDBfirstModels19.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -564,6 +405,7 @@
     <Content Include="Views\Motorcycles\Index.cshtml" />
     <Content Include="Views\ShoppingCart2\Cart.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\ShoppingCart3\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -634,11 +476,8 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

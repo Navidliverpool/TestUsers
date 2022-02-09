@@ -17,6 +17,7 @@ namespace TestUsers.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Motorcycle()
         {
+            this.Carts = new HashSet<Cart>();
             this.OrderDetails = new HashSet<OrderDetail>();
             this.Dealers = new HashSet<Dealer>();
         }
@@ -29,7 +30,8 @@ namespace TestUsers.Models
         public Nullable<int> CategoryId { get; set; }
     
         public virtual Brand Brand { get; set; }
-        public virtual Cart Cart { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cart> Carts { get; set; }
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
