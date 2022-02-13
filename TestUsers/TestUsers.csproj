@@ -181,7 +181,6 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MotorcyclesController.cs" />
     <Compile Include="Controllers\ShoppingCart2Controller.cs" />
-    <Compile Include="Controllers\ShoppingCart3Controller.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -210,6 +209,7 @@
     <Compile Include="Models\Category.cs">
       <DependentUpon>NavEcommerceDBfirstModels19.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\Dealer.cs">
       <DependentUpon>NavEcommerceDBfirstModels19.tt</DependentUpon>
     </Compile>
@@ -250,8 +250,6 @@
     </Compile>
     <Compile Include="Models\OrderDetailMetaData.cs" />
     <Compile Include="Models\OrderMetaData.cs" />
-    <Compile Include="Models\ShoppingCart.cs" />
-    <Compile Include="Models\ShoppingCart3.cs" />
     <Compile Include="Models\Tamrin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -405,7 +403,6 @@
     <Content Include="Views\Motorcycles\Index.cshtml" />
     <Content Include="Views\ShoppingCart2\Cart.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
-    <Content Include="Views\ShoppingCart3\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

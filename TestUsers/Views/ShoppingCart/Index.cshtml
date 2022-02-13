@@ -1,4 +1,5 @@
 ﻿@model TestUsers.ViewModels.ShoppingCartViewModel
+
 @{
     ViewBag.Title = "Shopping Cart";
 }
@@ -12,7 +13,7 @@
             var recordToDelete = $(this).attr("data-id");
             if (recordToDelete != '') {
                 // Perform the ajax post
-                $.post("/ShoppingCart/RemoveFromCart", {"id": recordToDelete },
+                $.post("/ShoppingCart/RemoveFromCart", { "id": recordToDelete },
                     function (data) {
                         // Successful requests get here
                         // Update the page elements
@@ -34,47 +35,52 @@
 </h3>
 <p class="button">
     @Html.ActionLink("Checkout " +
-    ">>", "AddressAndPayment", "Checkout")
+    ">> ", "AddressAndPayment", "Checkout")
 </p>
 <div id="update-message">
 </div>
 <table>
     <tr>
         <th>
-            Name
+            Model
         </th>
         <th>
-            Price(each)
+            Price (each)
         </th>
         <th>
             Quantity
         </th>
+        <th></th>
     </tr>
-    @foreach (var item in
-Model.CartItems)
+    @foreach (var item in Model.CartItems)
     {
-<tr id="row-@item.RecordId">
-    <td>
-       @item.ProductName
-    </td>
-    <td>
-        @item.Price
-    </td>
-    <td id="item-count-@item.RecordId">
-        @item.Count
-    </td>
-    <td>
-        <a href="#" class="RemoveLink"
-           data-id="@item.RecordId">
-            Remove
-            from cart
-        </a>
-    </td>
-</tr>
+        <tr id="row-@item.RecordId">
+            <td>
+                @Html.ActionLink(item.Motorcycle.Model,
+"Details", "Store", new { id = item.motorcycleId }, null)
+            </td>
+            <td>
+                @item.Motorcycle.Price
+            </td>
+            <td id="item-count-@item.RecordId">
+                @item.Count
+            </td>
+            <td>
+                <a href="#" class="RemoveLink"
+                   data-id="@item.RecordId">
+                    Remove
+                    from cart
+                </a>
+            </td>
+        </tr>
     }
     <tr>
         <td>
             Total
+        </td>
+        <td>
+        </td>
+        <td>
         </td>
         <td id="cart-total">
             @Model.CartTotal
