@@ -20,7 +20,8 @@ namespace test.Controllers
         public async Task<ActionResult> Index()
         {
 
-            var motorcycles = db.Motorcycles.Include(m => m.Brand);
+            var motorcycles = db.Motorcycles.Include(m => m.Brand).Include(m => m.Category);
+            
             return View(await motorcycles.ToListAsync());
         }
 
@@ -43,8 +44,8 @@ namespace test.Controllers
         [Authorize()]
         public ActionResult Create()
         {
-
             ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "Name");
+            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "MotoCategory");
             return View();
         }
 
@@ -53,7 +54,7 @@ namespace test.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "MotorcycleId,Model,Price,BrandId")] Motorcycle motorcycle)
+        public async Task<ActionResult> Create([Bind(Include = "MotorcycleId,Model,Price,BrandId,CategoryId")] Motorcycle motorcycle)
         {
 
             if (ModelState.IsValid)
@@ -64,6 +65,7 @@ namespace test.Controllers
             }
 
             ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "Name", motorcycle.BrandId);
+            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "MotoCategory", motorcycle.CategoryId);
             return View(motorcycle);
         }
 
