@@ -14,7 +14,7 @@ Add, Edit, delete and more to Motorcycles, Brands, Dealers Index pages.
 As an admin you also have the ability of connecting different motorcycles with different brands, different dealers, differnt categories and vice versa.
 
 
-***User Side:***
+***Client Side:***
 
 There are several ways to find the motorcycles that you would like to look for:
 
