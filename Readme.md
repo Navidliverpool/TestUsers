@@ -1,4 +1,4 @@
-TestUsers is an - ASP.NET MVC database-first - application.
+TestUsers is an **_ASP.NET MVC_ database-first** application.
 
 
 This is a motorcycle online shop.
@@ -6,7 +6,7 @@ This is a motorcycle online shop.
 
 When the project is run you could get into the admin side after registering.
 
-Admin Side:
+**Admin Side:**
 
 Once you logged in as an admin you will access to some features like:
 Add, Edit, delete and more to Motorcycles, Brands, Dealers Index pages.
@@ -14,7 +14,7 @@ Add, Edit, delete and more to Motorcycles, Brands, Dealers Index pages.
 As an admin you also have the ability of connecting different motorcycles with different brands, different dealers, differnt categories and vice versa.
 
 
-User Side:
+**User Side:**
 
 There are several ways to find the motorcycles that you would like to look for:
 
@@ -27,17 +27,18 @@ The third way is search by dealers which have the motorcycles availible in stock
 And the forth way is search by category of the motorcycles.
 
 
-Add To Cart:
+**Add To Cart:**
 
 Once you have found the motorcycle:
-You could add it to the cart (the user is able to add and remove as many as they want to their cart).
-And the check out process would be after it.
 
+You could add it to the cart (the user is able to add and remove as many as they want to their cart).
+
+And the check out process would be after it.
 
 Here I have provided some screenshots from the different part of the application:
 
 
-User Homepage:
+**User Homepage:**
 
 Two NivoSliders are used in the Homepage.
 
@@ -53,12 +54,12 @@ Two NivoSliders are used in the Homepage.
 
 ![Screenshot (159)](https://user-images.githubusercontent.com/71192720/154378857-e3c0b633-9555-495c-adf4-731d31e9db30.png)
 
-The Database-Diagram From SSMS:
-
+**The Database-Diagram From SSMS:
+**
 ![Screenshot (171)](https://user-images.githubusercontent.com/71192720/154401437-76bf65b1-9d82-416f-ab9e-51b1cc9c5a67.png)
 
-Admin Side:
-
+**Admin Side:
+**
 ![Screenshot (160)](https://user-images.githubusercontent.com/71192720/154378861-19a3b4b8-7445-4d19-af43-8d42e9adf278.png)
 
 ![Screenshot (161)](https://user-images.githubusercontent.com/71192720/154378865-92ea777b-c2cf-496e-aaf6-744a25fb39fa.png)
@@ -73,8 +74,8 @@ Admin Side:
 
 ![Screenshot (166)](https://user-images.githubusercontent.com/71192720/154378896-aaeee4b5-1df1-4e8f-b240-1ad1d50461e9.png)
 
-Add Items To The Cart and Checkout Process:
-
+**Add Items To The Cart and Checkout Process:
+**
 ![Screenshot (168)](https://user-images.githubusercontent.com/71192720/154378899-e0f90a5c-4b50-497f-825b-05bcf35ce580.png)
 
 ![Screenshot (169)](https://user-images.githubusercontent.com/71192720/154378908-0bd424b6-7aed-4eb2-a08c-b507bf353dab.png)
