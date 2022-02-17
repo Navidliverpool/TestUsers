@@ -1,13 +1,18 @@
 TestUsers is an ASP.NET MVC database-first application.
 
+
 This is a motorcycle online shop.
 
+
 When the project is run you could get into the admin side after registering.
+
 
 Once you logged in as an admin you will access to some features like:
 Add, Edit, delete and more to Motorcycles, Brands, Dealers Index pages.
 
+
 As an admin  dashboard you also have the ability of connecting different motorcycles with different brands, different dealers, differnt categories and vice versa.
+
 
 User Side:
 There are several ways to find the motorcycles that you would like to look for:
@@ -16,12 +21,15 @@ The second way is search by the brand of the motorcycles.
 The third way is search by dealers which have the motorcycles availible in stock.
 And the forth way is search by category of the motorcycles.
 
+
 Add To Cart:
 Once you have found the motorcycle:
 You could add it to the cart (the user is able to add and remove as many as they want to their cart).
 And the check out process would be after it.
 
+
 Here I have provided some screenshots from the different part of the application:
+
 
 User Homepage:
 
@@ -39,6 +47,7 @@ The Database-Diagram From SSMS:
 ![Screenshot (171)](https://user-images.githubusercontent.com/71192720/154401437-76bf65b1-9d82-416f-ab9e-51b1cc9c5a67.png)
 
 Admin Side:
+
 ![Screenshot (160)](https://user-images.githubusercontent.com/71192720/154378861-19a3b4b8-7445-4d19-af43-8d42e9adf278.png)
 ![Screenshot (161)](https://user-images.githubusercontent.com/71192720/154378865-92ea777b-c2cf-496e-aaf6-744a25fb39fa.png)
 ![Screenshot (162)](https://user-images.githubusercontent.com/71192720/154378870-6ab2c1bf-ecc2-4c9f-9d1b-64cce6931ecf.png)
