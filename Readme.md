@@ -1,4 +1,4 @@
-TestUsers is an -ASP.NET MVC database-first- application.
+TestUsers is an - ASP.NET MVC database-first - application.
 
 
 This is a motorcycle online shop.
