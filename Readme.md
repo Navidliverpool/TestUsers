@@ -24,6 +24,7 @@ And the check out process would be after it.
 Here I have provided some screenshots from the different part of the application:
 
 User Homepage:
+
 Two NivoSliders are used in the Homepage.
 
 ![Screenshot (149)](https://user-images.githubusercontent.com/71192720/154378304-d6e92d1b-8d3c-42fc-a74f-2b017f2f5039.png)
