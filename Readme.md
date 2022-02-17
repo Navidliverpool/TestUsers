@@ -1,4 +1,4 @@
-TestUsers is an ASP.NET MVC database-first application that I have create.
+TestUsers is an ASP.NET MVC database-first application.
 
 It is a motorcycle online shop.
 
