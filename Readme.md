@@ -1,6 +1,6 @@
 TestUsers is an ASP.NET MVC database-first application.
 
-It is a motorcycle online shop.
+This is a motorcycle online shop.
 
 When the project is run you could get into the admin side after registering.
 
@@ -32,6 +32,10 @@ Two NivoSliders are used in the Homepage.
 ![Screenshot (157)](https://user-images.githubusercontent.com/71192720/154378851-37edc394-33a3-4aff-acfa-525c17b449a5.png)
 ![Screenshot (158)](https://user-images.githubusercontent.com/71192720/154378854-f1d01dd2-ab81-4b30-bd06-35cffaed39eb.png)
 ![Screenshot (159)](https://user-images.githubusercontent.com/71192720/154378857-e3c0b633-9555-495c-adf4-731d31e9db30.png)
+
+The Database-Diagram From SSMS:
+
+![Screenshot (171)](https://user-images.githubusercontent.com/71192720/154401437-76bf65b1-9d82-416f-ab9e-51b1cc9c5a67.png)
 
 Admin Side:
 ![Screenshot (160)](https://user-images.githubusercontent.com/71192720/154378861-19a3b4b8-7445-4d19-af43-8d42e9adf278.png)
