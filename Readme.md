@@ -11,7 +11,7 @@ Once you logged in as an admin you will access to some features like:
 Add, Edit, delete and more to Motorcycles, Brands, Dealers Index pages.
 
 
-As an admin  dashboard you also have the ability of connecting different motorcycles with different brands, different dealers, differnt categories and vice versa.
+As an admin you also have the ability of connecting different motorcycles with different brands, different dealers, differnt categories and vice versa.
 
 
 User Side:
