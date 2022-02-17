@@ -65,9 +65,9 @@ Admin Side:
 
 ![Screenshot (165)](https://user-images.githubusercontent.com/71192720/154378889-ff0f0ddf-986a-40c0-ba57-104d05a4221d.png)
 
-Add Item To The Cart and Checkout Process:
-
 ![Screenshot (166)](https://user-images.githubusercontent.com/71192720/154378896-aaeee4b5-1df1-4e8f-b240-1ad1d50461e9.png)
+
+Add Item To The Cart and Checkout Process:
 
 ![Screenshot (168)](https://user-images.githubusercontent.com/71192720/154378899-e0f90a5c-4b50-497f-825b-05bcf35ce580.png)
 
