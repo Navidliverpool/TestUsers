@@ -17,9 +17,13 @@ As an admin you also have the ability of connecting different motorcycles with d
 User Side:
 
 There are several ways to find the motorcycles that you would like to look for:
+
 The first way is search by the name or model of the motorcycles.
+
 The second way is search by the brand of the motorcycles.
+
 The third way is search by dealers which have the motorcycles availible in stock.
+
 And the forth way is search by category of the motorcycles.
 
 
