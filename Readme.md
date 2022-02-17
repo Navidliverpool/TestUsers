@@ -6,7 +6,7 @@ This is a motorcycle online shop.
 
 When the project is run you could get into the admin side after registering.
 
-***Admin Side:***
+***Admin Side:*** :office_worker:
 
 Once you logged in as an admin you will access to some features like:
 Add, Edit, delete and more to Motorcycles, Brands, Dealers Index pages.
