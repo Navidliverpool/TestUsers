@@ -5,7 +5,7 @@ This is a motorcycle E-shop.
 
 By registering to the website you could login as an Admin.
 
-:office_worker: ***Admin Side:*** 
+:office_worker: ***Admin-Side:*** 
 
 Once you logged in as an admin you will access to some features like:
 Add, Edit, delete and more to Motorcycles, Brands, Dealers Index pages.
@@ -13,7 +13,7 @@ Add, Edit, delete and more to Motorcycles, Brands, Dealers Index pages.
 As an admin you also have the ability of connecting different motorcycles with different brands, different dealers, differnt categories and vice versa.
 
 
-:frowning_person: ***Client Side:***
+:frowning_person: ***Client-Side:***
 
 There are several ways to find the motorcycles that you would like to look for:
 
