@@ -1,7 +1,7 @@
 TestUsers is an **ASP.NET MVC database-first** application.
 
 
-This is a motorcycle online shop.
+This is a motorcycle E-shop.
 
 
 When the project is run you could get into the admin side after registering.
