@@ -6,7 +6,7 @@ This is a motorcycle online shop.
 
 When the project is run you could get into the admin side after registering.
 
-***Admin Side:*** :office_worker:
+:office_worker: ***Admin Side:*** 
 
 Once you logged in as an admin you will access to some features like:
 Add, Edit, delete and more to Motorcycles, Brands, Dealers Index pages.
@@ -14,7 +14,7 @@ Add, Edit, delete and more to Motorcycles, Brands, Dealers Index pages.
 As an admin you also have the ability of connecting different motorcycles with different brands, different dealers, differnt categories and vice versa.
 
 
-***Client Side:***
+:frowning_person: ***Client Side:***
 
 There are several ways to find the motorcycles that you would like to look for:
 
@@ -24,7 +24,7 @@ There are several ways to find the motorcycles that you would like to look for:
 * And the forth way is search by category of the motorcycles.
 
 
-***Add To Cart:***
+:roller_skate: ***Add To Cart:***
 
 Once you have found the motorcycle:
 
