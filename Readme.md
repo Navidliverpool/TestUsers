@@ -45,11 +45,11 @@ NivoSliders in Homepage
 
 Categories
 
-![Screenshot (156)](https://user-images.githubusercontent.com/71192720/154727901-192c2ecd-63ea-445e-b645-6e5112928794.png)
+![Screenshot (156)](https://user-images.githubusercontent.com/71192720/154729241-1acf23c8-1759-4e0f-82b3-ac60ae44f79e.png)
 
-![Screenshot (157)](https://user-images.githubusercontent.com/71192720/154727911-a1f31325-4d52-41f4-b904-cdb8c56fa67d.png)
+![Screenshot (157)](https://user-images.githubusercontent.com/71192720/154729244-ba8fbbf4-baad-4d29-a5fd-a2ee91426b2c.png)
 
-![Screenshot (158)](https://user-images.githubusercontent.com/71192720/154727927-27ea9b4c-1fe6-415f-aeb5-36e10be78b66.png)
+![Screenshot (158)](https://user-images.githubusercontent.com/71192720/154729251-fd6e7925-fa5e-4ab8-ab9e-6c414b4edd55.png)
 
 ![Screenshot (159)](https://user-images.githubusercontent.com/71192720/154727937-57d03d19-f7ab-4c4d-8e2c-29c421e4dbe7.png)
 
