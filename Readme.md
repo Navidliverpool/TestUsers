@@ -43,7 +43,7 @@ NivoSliders in Homepage
 
 ![Screenshot (154)](https://user-images.githubusercontent.com/71192720/154727839-fc9a00a5-faa2-4b5a-a142-299a970f4c06.png)
 
-separated to categories
+Categories
 
 ![Screenshot (156)](https://user-images.githubusercontent.com/71192720/154727901-192c2ecd-63ea-445e-b645-6e5112928794.png)
 
