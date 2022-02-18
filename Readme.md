@@ -52,13 +52,13 @@ Categories
 
 ![Screenshot (159)](https://user-images.githubusercontent.com/71192720/154727937-57d03d19-f7ab-4c4d-8e2c-29c421e4dbe7.png)
 
-**The Database-Diagram From SSMS:
-**
+**The Database-Diagram From SSMS:**
+
 ![Screenshot (171)](https://user-images.githubusercontent.com/71192720/154728087-6c1cd329-c749-4fb7-bdca-3951667b85b5.png)
 
 
-**Admin Side:
-**
+**Admin Side:**
+
 ![Screenshot (160)](https://user-images.githubusercontent.com/71192720/154728152-2ef11371-0061-4ca2-a758-532277d00774.png)
 
 ![Screenshot (161)](https://user-images.githubusercontent.com/71192720/154728160-2c295e86-6d06-45a6-abdf-92886e08d68a.png)
@@ -73,8 +73,8 @@ Categories
 
 ![Screenshot (166)](https://user-images.githubusercontent.com/71192720/154728212-fba70ee6-9deb-486a-988c-8a25460fe42a.png)
 
-**Add Items To The Cart and Checkout Process:
-**
+**Add Items To The Cart and Checkout Process:**
+
 ![Screenshot (168)](https://user-images.githubusercontent.com/71192720/154728330-88d325ea-daa3-476c-91ef-3cb8e3544331.png)
 
 ![Screenshot (169)](https://user-images.githubusercontent.com/71192720/154728337-9cf00bda-738c-4aa5-a8d3-1424c44f77e1.png)
