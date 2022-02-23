@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using TestUsers.Models;
 
-namespace test.Controllers
+namespace TestUsers.Controllers
 {
     public class MotorcyclesController : Controller
     {

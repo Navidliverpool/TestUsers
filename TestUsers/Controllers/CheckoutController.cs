@@ -3,7 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using TestUsers.Models;
 
-namespace MvcMusicStore.Controllers
+namespace TestUsers.Controllers
 {
     [Authorize]
     public class CheckoutController : Controller
