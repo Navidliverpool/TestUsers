@@ -8,7 +8,7 @@ By registering to the website you could login as an Admin.
 :office_worker: ***Admin-Side:*** 
 
 Once you logged in as an admin you will access to some features like:
-Add, Edit, delete and more to Motorcycles, Brands, Dealers Index pages.
+Add, Edit, delete and more to Motorcycles, Brands, Dealers through the Index pages.
 
 As an admin you also have the ability of connecting different motorcycles with different brands, different dealers, differnt categories and vice versa.
 
