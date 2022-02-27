@@ -54,7 +54,7 @@ namespace TestUsers.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "MotorcycleId,Model,Price,BrandId,CategoryId")] Motorcycle motorcycle)
+        public async Task<ActionResult> Create([Bind(Include = "MotorcycleId,Model,Price,BrandId,CategoryId")] Motorcycle motorcycle, HttpPostedFileBase image)
         {
 
             if (ModelState.IsValid)
