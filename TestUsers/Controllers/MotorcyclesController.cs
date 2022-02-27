@@ -7,6 +7,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using TestUsers.Data.Repositories;
 using TestUsers.Models;
 
 namespace TestUsers.Controllers
@@ -14,15 +15,34 @@ namespace TestUsers.Controllers
     public class MotorcyclesController : Controller
     {
         private NavEcommerceDBfirstEntities19 db = new NavEcommerceDBfirstEntities19();
+        IMotorcycleRepository _motorcycleRepository;
+        IBrandRepository _brandRepository;
+        IDealerRepository _dealerRepository;
+        ICategoryRepository _categoryRepository;
 
+        public MotorcyclesController(IMotorcycleRepository motorcycleRepository,
+            IBrandRepository brandRepository,
+            IDealerRepository dealerRepository,
+            ICategoryRepository categoryRepository)
+        {
+            _motorcycleRepository = motorcycleRepository;
+            _brandRepository = brandRepository;
+            _dealerRepository = dealerRepository;
+            _categoryRepository = categoryRepository;
+        }
+
+        public MotorcyclesController()
+        {
+
+        }
         // GET: Motorcycles
         [Authorize()]
         public async Task<ActionResult> Index()
         {
 
-            var motorcycles = db.Motorcycles.Include(m => m.Brand).Include(m => m.Category);
-            
-            return View(await motorcycles.ToListAsync());
+            var getAllMotorcyclesIncludeBrandsCategories = _motorcycleRepository.GetMotorcyclesIncludeBrandsCategories();
+
+            return View(await getAllMotorcyclesIncludeBrandsCategories.ToListAsync());
         }
 
         // GET: Motorcycles/Details/5
@@ -32,7 +52,9 @@ namespace TestUsers.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Motorcycle motorcycle = await db.Motorcycles.FindAsync(id);
+
+            Motorcycle motorcycle = await _motorcycleRepository.GetMotorcycleById(id);
+
             if (motorcycle == null)
             {
                 return HttpNotFound();
@@ -44,8 +66,8 @@ namespace TestUsers.Controllers
         [Authorize()]
         public ActionResult Create()
         {
-            ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "Name");
-            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "MotoCategory");
+            ViewBag.BrandId = new SelectList(_brandRepository.GetBrands(), "BrandId", "Name");
+            ViewBag.CategoryId = new SelectList(_categoryRepository.GetCategories(), "CategoryId", "MotoCategory");
             return View();
         }
 
@@ -54,19 +76,40 @@ namespace TestUsers.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "MotorcycleId,Model,Price,BrandId,CategoryId")] Motorcycle motorcycle, HttpPostedFileBase image)
+        public async Task<ActionResult> Create([Bind(Include = "MotorcycleId,Model,Price,BrandId,CategoryId")] MotorcycleVM motorcycleToUpdate, HttpPostedFileBase image)
         {
 
             if (ModelState.IsValid)
             {
-                db.Motorcycles.Add(motorcycle);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                //_motorcycleRepository.AddMotorcycle(motorcycle);
+
+                if (image != null)
+                {
+                    byte[] data;
+                    using (Stream inputStream = image.InputStream)
+                    {
+                        MemoryStream memoryStream = inputStream as MemoryStream;
+                        if (memoryStream == null)
+                        {
+                            memoryStream = new MemoryStream();
+                            inputStream.CopyTo(memoryStream);
+                        }
+                        data = memoryStream.ToArray();
+                    }
+
+                    motorcycleToUpdate.Motorcycle.Image = data;
+                }
+
+                db.Entry(motorcycleToUpdate).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+
+                //_motorcycleRepository.SaveChanges();
+                //return RedirectToAction("Index");
             }
 
-            ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "Name", motorcycle.BrandId);
-            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "MotoCategory", motorcycle.CategoryId);
-            return View(motorcycle);
+            ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "Name", motorcycleToUpdate.Motorcycle.BrandId);
+            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "MotoCategory", motorcycleToUpdate.Motorcycle.CategoryId);
+            return View(motorcycleToUpdate);
         }
 
         // GET: Motorcycles/Edit/5
@@ -80,13 +123,13 @@ namespace TestUsers.Controllers
 
             var motorcycleViewModel = new MotorcycleVM
             {
-                Motorcycle = db.Motorcycles.Include(i => i.Dealers).First(i => i.MotorcycleId == id),
+                Motorcycle = _motorcycleRepository.GetMotorcycleIncludeItsDealers(id)
             };
 
             if (motorcycleViewModel.Motorcycle == null)
                 return HttpNotFound();
 
-            var allDealersList = db.Dealers.ToList();
+            var allDealersList = _dealerRepository.GetDealers();
 
             motorcycleViewModel.AllDealers = allDealersList.Select(d => new SelectListItem
             {

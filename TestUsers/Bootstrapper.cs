@@ -3,7 +3,7 @@ using Microsoft.Practices.Unity;
 using TestUsers.Data.Repositories;
 using Unity.Mvc4;
 
-namespace TestUsersCopy
+namespace TestUsers
 {
     public static class Bootstrapper
     {
